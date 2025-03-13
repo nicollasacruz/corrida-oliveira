@@ -12,7 +12,7 @@ export default defineConfig({
     ],
     build: {
         manifest: true,
-        outDir: 'storage/app/public/build', // Mudar para a pasta pública do Laravel
+        outDir: 'public/build', // Mudar para a pasta pública do Laravel
         emptyOutDir: true,
     }
 });
