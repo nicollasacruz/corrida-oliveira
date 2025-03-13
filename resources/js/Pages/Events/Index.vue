@@ -1,5 +1,5 @@
 <script setup>
-  import GuestLayout from '@/Layouts/GuestLayout'
+
   import { Head } from '@inertiajs/vue3'
 
   defineProps({
@@ -10,8 +10,5 @@
 </script>
 
 <template>
-  <GuestLayout>
-    <Head title="Index" />
 
-  </GuestLayout>
 </template>
