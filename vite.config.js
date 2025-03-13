@@ -17,7 +17,4 @@ export default defineConfig({
             },
         }),
     ],
-    server: {
-        host: env('APP_HOST', 'corrida-oliveira.test'),
-    }
 });
