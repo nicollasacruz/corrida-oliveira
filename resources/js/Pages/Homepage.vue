@@ -38,7 +38,7 @@ const toggleDarkMode = () => {
 
         <!-- Main Content -->
         <main class="py-12 px-6 w-full">
-            <h2 class="text-4xl font-bold mb-6 text-center">🏁 Upcoming Races</h2>
+            <h2 class="text-4xl font-bold mb-6 text-center">🏁 Nossas Corridas</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <div v-for="event in events" :key="event.id"
@@ -46,13 +46,13 @@ const toggleDarkMode = () => {
                      :class="{ 'bg-gray-800 text-white': darkMode, 'bg-white text-gray-900': !darkMode }">
 
                     <h3 class="text-2xl font-bold mb-2">{{ event.name }}</h3>
-                    <p class="text-lg">📍 {{ event.location }}</p>
-                    <p class="text-lg">📅 {{ event.startDate }}</p>
+                    <p class="text-lg font-bold">📍 {{ event.location }}</p>
+                    <p class="text-lg">📅 {{ event.startDate }} - {{ event.endDate }}</p>
 
                     <a :href="`/event/${event.id}`"
                        class="mt-4 inline-block text-lg font-semibold py-3 px-6 rounded-lg transition"
                        :class="{ 'bg-blue-500 text-white hover:bg-blue-700': !darkMode, 'bg-yellow-400 text-black hover:bg-yellow-500': darkMode }">
-                        ✅ Register Now
+                        ✅ Inscrever-se
                     </a>
                 </div>
             </div>

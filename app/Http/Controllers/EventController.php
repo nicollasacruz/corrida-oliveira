@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = Event::whereBeforeToday('endDate')->get();
         return Inertia::render('Home', ['events' => $events]);
     }
 
