@@ -15,15 +15,13 @@ const darkMode = ref(false);
 
 <template>
     <div>
-        <div
-            class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col items-center transition-colors duration-300">
-
+        <div class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col items-center transition-colors duration-300">
             <!-- Navbar -->
-            <nav class="my-2 md:my-6 md:py-4 max-w-screen-lg border-b border-gray-100 md:bg-cyan-500 dark:bg-gray-800 w-full rounded-lg">
+            <nav class="my-2 md:my-6 md:py-4 max-w-screen-lg border-b border-gray-100 md:bg-cyan-500 dark:bg-gray-800 w-full md:rounded-lg">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="flex h-24 md:h-20 justify-between items-center">
                         <div class="flex">
-                            <div class="flex shrink-0 items-center">
+                            <div class="flex shrink-0 items-center w-full">
                                 <NavLink :href="route('home')">
                                     <ApplicationLogo
                                         class="block h-24 md:h-16 w-auto fill-current text-gray-800 dark:text-white"/>
@@ -73,9 +71,9 @@ const darkMode = ref(false);
 
                 <div v-show="showingNavigationDropdown" class="sm:hidden">
                     <div class="space-y-1 pb-3 pt-2">
-                        <ResponsiveNavLink :href="route('dashboard')">Dashboard</ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('home')">Inscrição</ResponsiveNavLink>
                         <ResponsiveNavLink href="/about">About</ResponsiveNavLink>
-                        <ResponsiveNavLink href="/login">Admin</ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('home')">Admin</ResponsiveNavLink>
                     </div>
                 </div>
             </nav>
