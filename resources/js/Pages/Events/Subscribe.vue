@@ -93,11 +93,13 @@ const toggleDarkMode = () => {
                         class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
                         :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }">
                     <option value="" disabled>Select a size</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="2XL">2XL</option>
+                    <option v-if="!event.isChildEvent" value="S">S</option>
+                    <option v-if="!event.isChildEvent" value="M">M</option>
+                    <option v-if="!event.isChildEvent" value="L">L</option>
+                    <option v-if="!event.isChildEvent" value="XL">XL</option>
+                    <option v-if="!event.isChildEvent" value="2XL">2XL</option>
+                    <option v-if="event.isChildEvent" value="6-8">6-8</option>
+                    <option v-if="event.isChildEvent" value="8-10">8-10</option>
                 </select>
 
                 <button type="submit"

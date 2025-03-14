@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue'
+import { defineProps } from 'vue'
+import NavLink from "@/Components/NavLink.vue";
 
 defineProps({ events: Array })
 
@@ -21,9 +23,10 @@ const toggleDarkMode = () => {
             <div class="max-w-7xl mx-auto flex justify-between items-center px-6">
                 <h1 class="text-3xl font-bold">🏃 Corrida APO</h1>
                 <nav class="text-lg">
-                    <a href="/" class="px-4 py-2 hover:underline">🏠 Home</a>
-                    <a href="/about" class="px-4 py-2 hover:underline">ℹ️ About</a>
-                    <a href="/login" class="px-4 py-2 hover:underline">🔐 Admin</a>
+                    <a href="/" class="px-4 py-2 ">🏠 Home</a>
+                    <NavLink :href="route('home')" :active="route('home')" class="px-4 py-2 ">🏠 Home</NavLink>
+                    <a href="/about" class="px-4 py-2 ">ℹ️ About</a>
+                    <a href="/login" class="px-4 py-2 ">🔐 Admin</a>
                 </nav>
                 <button @click="toggleDarkMode"
                         class="px-4 py-2 rounded-lg text-lg font-semibold transition"
