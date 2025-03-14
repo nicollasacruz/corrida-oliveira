@@ -21,12 +21,12 @@ const darkMode = ref(false);
             <!-- Navbar -->
             <nav class="my-2 md:my-6 py-4 max-w-screen-lg border-b border-gray-100 md:bg-cyan-500 dark:bg-gray-800 w-full rounded-lg">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div class="flex h-24 md:h-20 justify-between items-center">
+                    <div class="flex h-22 md:h-20 justify-between items-center">
                         <div class="flex">
                             <div class="flex shrink-0 items-center">
                                 <NavLink :href="route('home')">
                                     <ApplicationLogo
-                                        class="block h-full md:h-16 w-auto fill-current text-gray-800 dark:text-white"/>
+                                        class="block h-20 md:h-16 w-auto fill-current text-gray-800 dark:text-white"/>
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:flex sm:ml-10">
