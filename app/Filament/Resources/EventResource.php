@@ -27,6 +27,10 @@ class EventResource extends Resource
                     ->label('Name')
                     ->required()
                     ->placeholder('Event Name'),
+                'description' => Forms\Components\Textarea::make('description')
+                    ->label('Description')
+                    ->required()
+                    ->placeholder('Description'),
                 'startDate' => Forms\Components\DatePicker::make('startDate')
                     ->label('Start Date')
                     ->required()
@@ -55,6 +59,10 @@ class EventResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Name')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('description')
+                    ->label('Description')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('startDate')
