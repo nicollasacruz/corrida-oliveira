@@ -30,12 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('admin/events', EventController::class)->except(['show']);
-    Route::resource('admin/participants', ParticipantController::class)->only(['index', 'update', 'destroy']);
-    Route::resource('admin/payments', PaymentController::class)->only(['index', 'update']);
-    Route::resource('admin/runner-kits', RunnerKitController::class)->only(['index', 'update']);
-    Route::post('/admin/email/send', [ParticipantController::class, 'sendEmail'])->name('admin.email.send');
-});
+//Route::middleware(['auth', 'verified'])->group(function () {
+//    Route::resource('admin/events', EventController::class)->except(['show']);
+//    Route::resource('admin/participants', ParticipantController::class)->only(['index', 'update', 'destroy']);
+//    Route::resource('admin/payments', PaymentController::class)->only(['index', 'update']);
+//    Route::resource('admin/runner-kits', RunnerKitController::class)->only(['index', 'update']);
+//    Route::post('/admin/email/send', [ParticipantController::class, 'sendEmail'])->name('admin.email.send');
+//});
 
 require __DIR__.'/auth.php';
