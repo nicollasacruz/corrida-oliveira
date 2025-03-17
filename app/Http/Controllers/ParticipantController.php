@@ -24,15 +24,12 @@ class ParticipantController extends Controller
         ]);
         $participant = $event->participants()->create($validated);
 
-        Payment::create([
-            'participant_id' => $participant->id,
+        $participant->runnerKit()->create([
+            'size' => $validated['sizeTshirt'],
+        ]);
+        $participant->payment()->create([
             'paymentMethod' => 'cash',
             'value' => $event->subscriptionFee,
-        ]);
-
-        RunnerKit::create([
-            'participant_id' => $participant->id,
-            'size' => $validated['sizeTshirt'],
         ]);
 
         //Mail::to($participant->email)->send(new RegistrationMail($participant));
