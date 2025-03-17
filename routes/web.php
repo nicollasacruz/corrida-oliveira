@@ -14,7 +14,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     //auth()->login(User::find(1));
     return Inertia::render('Homepage', [
-        'events' => Event::whereBeforeToday('endDate')->orderBy('subscriptionFee')->get(),
+        'events' => Event::where('startDate', '>=', now())
+            ->where('endDate', '<=', now())
+            ->orderBy('subscriptionFee')->get(),
     ]);
 })->name('home');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
