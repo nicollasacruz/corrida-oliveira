@@ -98,10 +98,10 @@ class ParticipantResource extends Resource
                     ->label('Nome do Responsável')
                     ->searchable()
                     ->sortable(),
-//                Tables\Columns\TextColumn::make('payment.status')
-//                    ->label('Status do Pagamento')
-//                    ->searchable()
-//                    ->sortable(),
+                Tables\Columns\TextColumn::make('payment.status')
+                    ->label('Status do Pagamento')
+                    ->searchable()
+                    ->sortable(),
 //                Tables\Columns\TextColumn::make('payment.paymentDate')
 //                    ->label('Data do Pagamento')
 //                    ->sortable(),
