@@ -102,19 +102,9 @@ class ParticipantResource extends Resource
                 Tables\Columns\TextColumn::make('payment.status')
                     ->label('Status do Pagamento')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('payment.paymentDate')
-                    ->label('Data do Pagamento')
-                    ->sortable()
-                    ->dateTime()
-                    ->formatStateUsing(fn ($state) => is_null($state) ? 'Não pago' : Carbon::parse($state)->format('d/m/Y H:i')),
                 Tables\Columns\TextColumn::make('runnerKit.status')
                     ->label('Status do Kit')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
-                    ->label('Data de Entrega do Kit')
-                    ->sortable()
-                    ->dateTime()
-                    ->formatStateUsing(fn ($state) => is_null($state) ? 'Não entregue' : Carbon::parse($state)->format('d/m/Y H:i')),
             ])
             ->filters([
                 //
@@ -126,14 +116,14 @@ class ParticipantResource extends Resource
                 Action::make('receberPagamento')
                     ->label('Receber Pagamento')
                     ->requiresConfirmation()
-                    ->action(fn (Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
-                    ->visible(fn (Participant $record) => $record->payment && $record->payment->status !== 'paid')
+                    ->action(fn(Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
+                    ->visible(fn(Participant $record) => $record->payment && $record->payment->status !== 'paid')
                     ->icon('heroicon-o-cash'),
                 Action::make('entregarKit')
                     ->label('Entregar Kit')
                     ->requiresConfirmation()
-                    ->action(fn (Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
-                    ->visible(fn (Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
+                    ->action(fn(Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
+                    ->visible(fn(Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
                     ->icon('heroicon-o-gift'),
             ])
             ->bulkActions([
