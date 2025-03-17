@@ -3,13 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ParticipantResource\Pages;
-use App\Filament\Resources\ParticipantResource\RelationManagers;
 use App\Models\Participant;
+use App\Models\Payment;
+use App\Models\RunnerKit;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -23,23 +25,23 @@ class ParticipantResource extends Resource
     {
         return $form
             ->schema([
-                'fullName' => Forms\Components\TextInput::make('fullName')
+                Forms\Components\TextInput::make('fullName')
                     ->label('Nome Completo')
                     ->required()
                     ->placeholder('Nome do Participante'),
-                'email' => Forms\Components\TextInput::make('email')
+                Forms\Components\TextInput::make('email')
                     ->label('Email')
                     ->required()
                     ->placeholder('Email'),
-                'phone' => Forms\Components\TextInput::make('phone')
+                Forms\Components\TextInput::make('phone')
                     ->label('Telefone')
                     ->required()
                     ->placeholder('Telefone'),
-                'dateBorn' => Forms\Components\DatePicker::make('dateBorn')
+                Forms\Components\DatePicker::make('dateBorn')
                     ->label('Data de Nascimento')
                     ->required()
                     ->placeholder('Data de Nascimento'),
-                'sizeTshirt' => Forms\Components\Select::make('sizeTshirt')
+                Forms\Components\Select::make('sizeTshirt')
                     ->label('Tamanho da T-Shirt')
                     ->required()
                     ->options([
@@ -51,10 +53,10 @@ class ParticipantResource extends Resource
                         'XL' => 'XL',
                         'XXL' => 'XXL',
                     ]),
-                'responsableName' => Forms\Components\TextInput::make('responsableName')
+                Forms\Components\TextInput::make('responsableName')
                     ->label('Nome do Responsável')
                     ->placeholder('Nome do Responsável'),
-                'event_id' => Forms\Components\Select::make('event_id')
+                Forms\Components\Select::make('event_id')
                     ->label('Evento')
                     ->required()
                     ->relationship('event', 'name'),
@@ -96,6 +98,18 @@ class ParticipantResource extends Resource
                     ->label('Nome do Responsável')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('payment.status')
+                    ->label('Status do Pagamento')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('payment.paymentDate')
+                    ->label('Data do Pagamento')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('runnerKit.status')
+                    ->label('Status do Kit')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('runnerKit.updated_at')
+                    ->label('Data de Entrega do Kit')
+                    ->sortable(),
             ])
             ->filters([
                 //
@@ -103,6 +117,17 @@ class ParticipantResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Action::make('receberPagamento')
+                    ->label('Receber Pagamento')
+                    ->requiresConfirmation()
+                    ->action(fn (Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
+                    ->visible(fn (Participant $record) => $record->payment && $record->payment->status !== 'paid'),
+                Action::make('entregarKit')
+                    ->label('Entregar Kit')
+                    ->requiresConfirmation()
+                    ->action(fn (Participant $record) => $record->runnerKit()->update(['status' => 'delivered']))
+                    ->visible(fn (Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
