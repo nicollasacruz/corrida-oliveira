@@ -10,15 +10,10 @@ class RunnerKit extends Model
 {
    use SoftDeletes;
 
-    protected $fillable = ['participant_id', 'event_id', 'size', 'status', 'deliveredDate'];
+    protected $fillable = ['participant_id', 'size', 'status', 'deliveredDate'];
 
     public function participant(): BelongsTo
     {
         return $this->belongsTo(Participant::class);
-    }
-
-    public function event(): BelongsTo
-    {
-        return $this->belongsTo(Event::class);
     }
 }

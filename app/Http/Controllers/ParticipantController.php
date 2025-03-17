@@ -26,7 +26,6 @@ class ParticipantController extends Controller
 
         Payment::create([
             'participant_id' => $participant->id,
-            'event_id' => $event->id,
             'paymentMethod' => 'cash',
             'status' => 'pending',
             'value' => $event->subscriptionFee,
@@ -34,7 +33,6 @@ class ParticipantController extends Controller
 
         RunnerKit::create([
             'participant_id' => $participant->id,
-            'event_id' => $event->id,
             'status' => 'pending',
         ]);
 

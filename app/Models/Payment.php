@@ -13,7 +13,7 @@ class Payment extends Model
     /** @use HasFactory<PaymentFactory> */
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['participant_id', 'event_id', 'paymentDate', 'value', 'paymentMethod', 'status'];
+    protected $fillable = ['participant_id', 'paymentDate', 'value', 'paymentMethod', 'status'];
 
     protected $casts = [
         'paymentDate' => 'datetime',
@@ -23,10 +23,5 @@ class Payment extends Model
     public function participant(): BelongsTo
     {
         return $this->belongsTo(Participant::class);
-    }
-
-    public function event(): BelongsTo
-    {
-        return $this->belongsTo(Event::class);
     }
 }

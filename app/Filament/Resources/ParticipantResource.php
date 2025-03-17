@@ -107,7 +107,7 @@ class ParticipantResource extends Resource
                 Tables\Columns\TextColumn::make('runnerKit.status')
                     ->label('Status do Kit')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('runnerKit.updated_at')
+                Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
                     ->label('Data de Entrega do Kit')
                     ->sortable(),
             ])
