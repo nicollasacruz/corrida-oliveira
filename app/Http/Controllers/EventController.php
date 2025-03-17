@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::whereBeforeToday('endDate')->orderBy('subscriptionFee')->get();
+        $events = Event::where('endDate', '>=', now())->orderBy('subscriptionFee')->get();
         return Inertia::render('Homepage', ['events' => $events]);
     }
 

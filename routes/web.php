@@ -11,13 +11,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    //auth()->login(User::find(1));
-    return Inertia::render('Homepage', [
-        'events' => Event::where('endDate', '<=', now())
-            ->orderBy('subscriptionFee')->get(),
-    ]);
-})->name('home');
+Route::get('/', [EventController::class, 'index'])->name('home');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
 Route::post('/event/{id}/subscribe', [ParticipantController::class, 'store'])->name('event.subscribe');
 
