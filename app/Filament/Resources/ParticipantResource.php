@@ -101,19 +101,18 @@ class ParticipantResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.status')
                     ->label('Status do Pagamento')
-                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.paymentDate')
                     ->label('Data do Pagamento')
                     ->sortable()
-                    ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->format('d/m/Y') : 'Não pago'),
-//                Tables\Columns\TextColumn::make('runnerKit.status')
-//                    ->label('Status do Kit')
-//                    ->searchable()
-//                    ->sortable(),
-//                Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
-//                    ->label('Data de Entrega do Kit')
-//                    ->sortable(),
+                    ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->format('d/m/Y H:i') : 'Não pago'),
+                Tables\Columns\TextColumn::make('runnerKit.status')
+                    ->label('Status do Kit')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
+                    ->label('Data de Entrega do Kit')
+                    ->sortable()
+                    ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->format('d/m/Y H:i') : 'Não entregue'),
             ])
             ->filters([
                 //
@@ -122,18 +121,18 @@ class ParticipantResource extends Resource
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-//                Action::make('receberPagamento')
-//                    ->label('Receber Pagamento')
-//                    ->requiresConfirmation()
-//                    ->action(fn (Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
-//                    ->visible(fn (Participant $record) => $record->payment && $record->payment->status !== 'paid')
-//                    ->icon('heroicon-o-cash'),
-//                Action::make('entregarKit')
-//                    ->label('Entregar Kit')
-//                    ->requiresConfirmation()
-//                    ->action(fn (Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
-//                    ->visible(fn (Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
-//                    ->icon('heroicon-o-gift'),
+                Action::make('receberPagamento')
+                    ->label('Receber Pagamento')
+                    ->requiresConfirmation()
+                    ->action(fn (Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
+                    ->visible(fn (Participant $record) => $record->payment && $record->payment->status !== 'paid')
+                    ->icon('heroicon-o-cash'),
+                Action::make('entregarKit')
+                    ->label('Entregar Kit')
+                    ->requiresConfirmation()
+                    ->action(fn (Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
+                    ->visible(fn (Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
+                    ->icon('heroicon-o-gift'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
