@@ -62,9 +62,9 @@ class EventResource extends Resource
                     ->label('Name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('description')
-                    ->label('Description')
-                    ->searchable()
+                Tables\Columns\TextColumn::make('participants_count')
+                    ->label('Participants')
+                    ->counts('participants')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('startDate')
                     ->label('Start Date')
