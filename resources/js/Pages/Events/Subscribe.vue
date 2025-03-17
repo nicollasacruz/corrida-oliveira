@@ -98,7 +98,7 @@ const toggleDarkMode = () => {
                        :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }"
                        required/>
 
-                <label class="block font-semibold">👕 T-shirt Size</label>
+                <label class="block font-semibold">👕 Tamanho da T-Shirt</label>
                 <span class="block text-sm mb-2">A escolha não garante o recebimento do tamanho exato selecionado, pois está sujeita à disponibilidade.</span>
                 <select v-model="form.sizeTshirt"
                         class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
