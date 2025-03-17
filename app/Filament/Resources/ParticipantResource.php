@@ -105,14 +105,14 @@ class ParticipantResource extends Resource
                 Tables\Columns\TextColumn::make('payment.paymentDate')
                     ->label('Data do Pagamento')
                     ->sortable()
-                    ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->format('d/m/Y H:i') : 'Não pago'),
+                    ->formatStateUsing(fn ($state) => is_null($state) ? 'Não pago' : Carbon::parse($state)->format('d/m/Y H:i')),
                 Tables\Columns\TextColumn::make('runnerKit.status')
                     ->label('Status do Kit')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
                     ->label('Data de Entrega do Kit')
                     ->sortable()
-                    ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->format('d/m/Y H:i') : 'Não entregue'),
+                    ->formatStateUsing(fn ($state) => is_null($state) ? 'Não entregue' : Carbon::parse($state)->format('d/m/Y H:i')),
             ])
             ->filters([
                 //
