@@ -98,20 +98,20 @@ class ParticipantResource extends Resource
                     ->label('Nome do Responsável')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('payment.status')
-                    ->label('Status do Pagamento')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('payment.paymentDate')
-                    ->label('Data do Pagamento')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('runnerKit.status')
-                    ->label('Status do Kit')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
-                    ->label('Data de Entrega do Kit')
-                    ->sortable(),
+//                Tables\Columns\TextColumn::make('payment.status')
+//                    ->label('Status do Pagamento')
+//                    ->searchable()
+//                    ->sortable(),
+//                Tables\Columns\TextColumn::make('payment.paymentDate')
+//                    ->label('Data do Pagamento')
+//                    ->sortable(),
+//                Tables\Columns\TextColumn::make('runnerKit.status')
+//                    ->label('Status do Kit')
+//                    ->searchable()
+//                    ->sortable(),
+//                Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
+//                    ->label('Data de Entrega do Kit')
+//                    ->sortable(),
             ])
             ->filters([
                 //
