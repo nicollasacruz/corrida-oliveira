@@ -116,7 +116,7 @@ const toggleDarkMode = () => {
                 <button type="submit"
                         class="w-full py-3 rounded-lg font-bold transition"
                         :class="{ 'bg-yellow-400 text-black hover:bg-yellow-500': darkMode, 'bg-blue-600 text-white hover:bg-blue-700': !darkMode }">
-                    ✅ Submit Registration
+                    ✅ Enviar Inscrição
                 </button>
             </form>
         </div>

@@ -120,12 +120,12 @@ class ParticipantResource extends Resource
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-                Action::make('receberPagamento')
-                    ->label('Receber Pagamento')
-                    ->requiresConfirmation()
-                    ->action(fn (Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
-                    ->visible(fn (Participant $record) => $record->payment && $record->payment->status !== 'paid')
-                    ->icon('heroicon-o-cash'),
+//                Action::make('receberPagamento')
+//                    ->label('Receber Pagamento')
+//                    ->requiresConfirmation()
+//                    ->action(fn (Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
+//                    ->visible(fn (Participant $record) => $record->payment && $record->payment->status !== 'paid')
+//                    ->icon('heroicon-o-cash'),
 //                Action::make('entregarKit')
 //                    ->label('Entregar Kit')
 //                    ->requiresConfirmation()
