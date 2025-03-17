@@ -110,21 +110,23 @@ class ParticipantResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
                 Action::make('receberPagamento')
                     ->label('Receber Pagamento')
                     ->requiresConfirmation()
+                    ->color('primary')
                     ->action(fn(Participant $record) => $record->payment()->update(['status' => 'paid', 'paymentDate' => now()]))
                     ->visible(fn(Participant $record) => $record->payment && $record->payment->status !== 'paid')
                     ->icon('heroicon-o-currency-dollar'),
                 Action::make('entregarKit')
                     ->label('Entregar Kit')
                     ->requiresConfirmation()
+                    ->color('primary')
                     ->action(fn(Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
                     ->visible(fn(Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
                     ->icon('heroicon-s-gift'),
+                Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
