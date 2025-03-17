@@ -41,7 +41,6 @@ const toggleDarkMode = () => {
     <div :class="{ 'bg-gray-900 text-white': darkMode, 'bg-gray-100 text-gray-900': !darkMode }"
          class="min-h-screen flex flex-col justify-center items-center p-6 transition-colors duration-300">
 
-        <!-- Botão de alternância de tema -->
         <button @click="toggleDarkMode"
                 class="absolute top-4 right-4 px-4 py-2 rounded-md font-semibold transition"
                 :class="{ 'bg-yellow-400 text-black': darkMode, 'bg-gray-800 text-white': !darkMode }">
@@ -100,6 +99,7 @@ const toggleDarkMode = () => {
                        required/>
 
                 <label class="block font-semibold">👕 T-shirt Size</label>
+                <span class="block text-sm mb-2">A escolha não garante o recebimento do tamanho exato selecionado, pois está sujeita à disponibilidade.</span>
                 <select v-model="form.sizeTshirt"
                         class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
                         :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }">
