@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RunnerKit extends Model
 {
-   use SoftDeletes;
-
     protected $fillable = ['participant_id', 'size', 'status', 'deliveredDate'];
 
     public function participant(): BelongsTo
