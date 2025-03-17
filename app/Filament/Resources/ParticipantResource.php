@@ -6,6 +6,7 @@ use App\Filament\Resources\ParticipantResource\Pages;
 use App\Models\Participant;
 use App\Models\Payment;
 use App\Models\RunnerKit;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -104,7 +105,8 @@ class ParticipantResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.paymentDate')
                     ->label('Data do Pagamento')
-                    ->sortable(),
+                    ->sortable()
+                    ->formatStateUsing(fn ($state) => $state ? Carbon::parse($state)->format('d/m/Y') : 'Não pago'),
 //                Tables\Columns\TextColumn::make('runnerKit.status')
 //                    ->label('Status do Kit')
 //                    ->searchable()
