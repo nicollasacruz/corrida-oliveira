@@ -1,10 +1,11 @@
 <script setup>
-import { ref } from 'vue'
-import { useForm } from '@inertiajs/vue3'
+import {ref} from 'vue'
+import {router, useForm} from '@inertiajs/vue3'
 
 const props = defineProps({
     event: Object,
-})
+});
+const event = ref(props.event);
 
 const darkMode = ref(true)
 
@@ -17,13 +18,18 @@ const form = useForm({
     sizeTshirt: '',
 })
 
-const event = props.event;
 const submit = () => {
     console.log(event.id)
-    form.post(route('event.subscribe', event.id)).onSuccess(() => {;
-        form.reset()
-        alert('Inscrição submetida com sucesso!')
-    })
+    console.log(form, "form")
+    form.post(route('event.subscribe', { id: event.value.id }), {
+        onSuccess: () => {
+            form.reset();
+            router.visit(route('home'));
+        },
+        onError: (errors) => {
+            console.error("Erro ao enviar formulário:", errors);
+        },
+    });
 }
 
 const toggleDarkMode = () => {
@@ -58,14 +64,16 @@ const toggleDarkMode = () => {
                        type="text"
                        placeholder="Nome Completo"
                        class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
-                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }" required />
+                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }"
+                       required/>
 
                 <label class="block font-semibold">Email:</label>
                 <input v-model="form.email"
                        type="email"
                        placeholder="Email"
                        class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
-                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }" required />
+                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }"
+                       required/>
 
                 <label v-if="event.isChildEvent" class="block font-semibold">Nome do Responsável:</label>
                 <input v-if="event.isChildEvent"
@@ -73,20 +81,23 @@ const toggleDarkMode = () => {
                        type="text"
                        placeholder="Nome do Responsável"
                        class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
-                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }" required />
+                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }"
+                       required/>
 
                 <label class="block font-semibold">Contacto:</label>
                 <input v-model="form.phone"
                        type="tel"
                        placeholder="Contacto"
                        class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
-                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }" required />
+                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }"
+                       required/>
 
                 <label class="block font-semibold">Data de Nascimento:</label>
                 <input v-model="form.dateBorn"
                        type="date"
                        class="w-full px-4 py-3 rounded-lg focus:outline-none transition"
-                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }" required />
+                       :class="{ 'bg-gray-700 text-white border-gray-600': darkMode, 'bg-gray-100 border-gray-300 text-gray-900': !darkMode }"
+                       required/>
 
                 <label class="block font-semibold">👕 T-shirt Size</label>
                 <select v-model="form.sizeTshirt"

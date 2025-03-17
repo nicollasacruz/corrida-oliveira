@@ -38,7 +38,8 @@ const toggleDarkMode = () => {
                         <p class="text-md">📅 {{ event.endDate }}</p>
                         <p class="text-md">💶 {{ event.subscriptionFee }} €</p>
 
-                        <a :href="`/event/${event.id}`"
+<!--                        <a :href="`/event/${event.id}`"-->
+                        <a :href="route('event.show', {id: event.id})"
                            class="mt-4 inline-block text-lg font-semibold py-1 px-4 rounded-lg transition bg-cyan-600 text-white hover:bg-cyan-700 dark:bg-gray-400 dark:text-black dark:hover:bg-gray-500">
                             Inscrição
                         </a>
