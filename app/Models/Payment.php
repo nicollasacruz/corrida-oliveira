@@ -18,6 +18,7 @@ class Payment extends Model
     protected $casts = [
         'paymentDate' => 'datetime',
         'value' => 'decimal:10,2',
+        'status' => 'string',
     ];
 
     public function participant(): BelongsTo

@@ -10,6 +10,12 @@ class RunnerKit extends Model
 {
     protected $fillable = ['participant_id', 'size', 'status', 'deliveredDate'];
 
+    protected $casts = [
+        'deliveredDate' => 'datetime',
+        'size' => 'string',
+        'status' => 'string',
+    ];
+
     public function participant(): BelongsTo
     {
         return $this->belongsTo(Participant::class);

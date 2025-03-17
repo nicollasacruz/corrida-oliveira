@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('runner_kits', function (Blueprint $table) {
             $table->foreignId('participant_id')->constrained();
             $table->string('size');
-            $table->string('status');
+            $table->string('status')->default('pending');
             $table->dateTime('deliveredDate')->nullable();
         });
 
