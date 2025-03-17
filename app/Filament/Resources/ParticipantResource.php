@@ -100,12 +100,14 @@ class ParticipantResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.status')
                     ->label('Status do Pagamento')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.paymentDate')
                     ->label('Data do Pagamento')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('runnerKit.status')
                     ->label('Status do Kit')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('runnerKit.deliveredDate')
                     ->label('Data de Entrega do Kit')
