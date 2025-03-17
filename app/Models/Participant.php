@@ -22,9 +22,9 @@ class Participant extends Model
         return $this->belongsTo(Event::class);
     }
 
-    public function payment(): HasMany
+    public function payment(): HasOne
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasOne(Payment::class);
     }
 
     public function runnerKit(): HasOne
