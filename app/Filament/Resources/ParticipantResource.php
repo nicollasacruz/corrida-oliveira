@@ -124,7 +124,7 @@ class ParticipantResource extends Resource
                     ->requiresConfirmation()
                     ->action(fn(Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
                     ->visible(fn(Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
-                    ->icon('heroicon-o-present'),
+                    ->icon('heroicon-s-gift'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
