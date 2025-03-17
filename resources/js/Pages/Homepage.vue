@@ -31,7 +31,7 @@ const toggleDarkMode = () => {
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1300px] mx-10 md:mx-auto">
                     <div v-for="event in events" :key="event.id"
-                         class="p-6 rounded-lg shadow-md transition transform hover:scale-105 bg-white text-gray-900 dark:bg-gray-800 dark:text-white">
+                         class="p-6 rounded-lg shadow-md transition transform hover:scale-105 bg-white text-gray-900 ">
 
                         <h3 class="text-xl font-bold mb-2">{{ event.name }}</h3>
                         <p class="text-md font-bold">📍 {{ event.location }}</p>
