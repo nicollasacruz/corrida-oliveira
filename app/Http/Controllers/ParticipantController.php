@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Participant;
 use App\Models\Payment;
+use App\Models\RunnerKit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 //use App\Mail\RegistrationMail;
@@ -29,6 +30,12 @@ class ParticipantController extends Controller
             'paymentMethod' => 'cash',
             'status' => 'pending',
             'value' => $event->subscriptionFee,
+        ]);
+
+        RunnerKit::create([
+            'participant_id' => $participant->id,
+            'event_id' => $event->id,
+            'status' => 'pending',
         ]);
 
         //Mail::to($participant->email)->send(new RegistrationMail($participant));
