@@ -14,6 +14,11 @@ class EventController extends Controller
         return Inertia::render('Homepage', ['events' => $events]);
     }
 
+    public function about()
+    {
+        return Inertia::render('About');
+    }
+
     public function show($id)
     {
         $event = Event::with('participants')->findOrFail($id);

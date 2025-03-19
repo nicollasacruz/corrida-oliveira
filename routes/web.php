@@ -21,6 +21,7 @@ Route::get('/qrcode', function () {
     return $qrcode;
 });
 Route::get('/', [EventController::class, 'index'])->name('home');
+Route::get('/about', [EventController::class, 'about'])->name('about');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
 Route::post('/event/{id}/subscribe', [ParticipantController::class, 'store'])->name('event.subscribe');
 

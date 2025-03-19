@@ -6,6 +6,8 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import {Link, usePage} from '@inertiajs/vue3';
+import ImageHeader from "../../img/crossing-their-own-capabilities2.jpg";
+import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
 
 const showingNavigationDropdown = ref(false);
 const user = usePage().props.auth.user;
@@ -29,11 +31,10 @@ const darkMode = ref(false);
                             </div>
                             <div class="hidden space-x-8 sm:flex sm:ml-10">
                                 <NavLink :href="route('home')" :active="route().current('home')">INSCRIÇÕES</NavLink>
-                                <NavLink :href="route('home')" :active="route().current('home')">APO</NavLink>
-                                <NavLink v-if="user" :href="route('dashboard')" :active="route().current('dashboard')">
+                                <NavLink :href="route('about')" :active="route().current('about')">NOSSO EVENTO</NavLink>
+<!--                                <NavLink :href="route('home')" :active="route().current('home')">APO</NavLink>-->
+                                <NavLink href="/admin" :active="route().current('filament.admin.pages.dashboard')">
                                     ADMIN
-                                </NavLink>
-                                <NavLink v-else :href="route('login')" :active="route().current('login')">Admin
                                 </NavLink>
                             </div>
                         </div>
@@ -72,14 +73,41 @@ const darkMode = ref(false);
                 <div v-show="showingNavigationDropdown" class="sm:hidden">
                     <div class="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink :href="route('home')">Inscrição</ResponsiveNavLink>
-                        <ResponsiveNavLink href="/about">About</ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('home')">Admin</ResponsiveNavLink>
+                        <ResponsiveNavLink href="/about">Nosso Evento</ResponsiveNavLink>
+                        <ResponsiveNavLink href="/admin">Admin</ResponsiveNavLink>
                     </div>
                 </div>
             </nav>
-            <main>
-                <slot/>
-            </main>
+            <div :class="{'dark': darkMode}" class="min-h-screen">
+                <div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
+                    <header class="relative h-[30vh] md:h-[50vh] overflow-hidden">
+                        <img
+                            :src="ImageHeader"
+                            alt="Caminhada noturna com luzes coloridas"
+                            class="w-full h-full object-cover object-center filter brightness-[0.65] dark:brightness-50"
+                        />
+
+                        <div class="absolute top-4 right-4 z-20">
+                            <button @click="toggleDarkMode"
+                                    class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300">
+                                <component :is="darkMode ? Sun : Moon" class="w-5 h-5 text-gray-800 dark:text-white"/>
+                            </button>
+                        </div>
+
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
+                            <h1
+                                class="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white max-w-4xl leading-tight tracking-tight shadow-sm"
+                            >
+                                Caminhada & Corrida Colorida Noturna de Oliveira
+                            </h1>
+                        </div>
+                    </header>
+
+                    <main class="container px-4 md:px-6 py-12 md:py-16">
+                        <slot />
+                    </main>
+                </div>
+            </div>
 
         </div>
     </div>
