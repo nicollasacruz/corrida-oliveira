@@ -7,10 +7,19 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RunnerKitController;
 use App\Models\Event;
 use App\Models\User;
+use chillerlan\QRCode\QRCode;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+Route::get('/qrcode', function () {
+    // $data = 'https://www.google.com';
+    $data   = 'https://oliveira.run.place';
+    $qrcode = (new QRCode)->render($data);
+
+    printf('<img class="h-96" src="%s" alt="QR Code" />', $qrcode);
+    return $qrcode;
+});
 Route::get('/', [EventController::class, 'index'])->name('home');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');
 Route::post('/event/{id}/subscribe', [ParticipantController::class, 'store'])->name('event.subscribe');

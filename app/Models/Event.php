@@ -13,7 +13,7 @@ class Event extends Model
     /** @use HasFactory<EventFactory> */
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'startDate', 'endDate', 'location', 'description', 'subscriptionFee', 'isChildEvent'];
+    protected $fillable = ['name', 'startDate', 'endDate', 'location', 'description', 'subscriptionFee', 'isChildEvent', 'image'];
 
     public function participants(): HasMany
     {
