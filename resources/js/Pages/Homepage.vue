@@ -4,15 +4,39 @@ import {defineProps} from 'vue'
 import NavLink from "@/Components/NavLink.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import ImageHeader from "../../img/crossing-their-own-capabilities2.jpg";
+import { motion, AnimatePresence } from 'framer-motion';
 
 defineProps({events: Array})
 
-const darkMode = ref(true) // 🌙 Iniciar no modo escuro
+const darkMode = ref(true)
 
-// Alternar entre tema claro e escuro
 const toggleDarkMode = () => {
-    darkMode.value = !darkMode.value
-}
+    darkMode.value = !darkMode;
+    document.documentElement.classList.toggle('dark');
+};
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 15
+        }
+    }
+};
 
 </script>
 
@@ -20,6 +44,11 @@ const toggleDarkMode = () => {
 
     <AuthenticatedLayout>
         <!-- Main Content -->
+
+
+
+
+
         <main class="py-0 w-full">
 
             <!-- imagem header -->
