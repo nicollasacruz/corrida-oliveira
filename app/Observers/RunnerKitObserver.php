@@ -23,7 +23,7 @@ class RunnerKitObserver
     {
         Log::info("Entrei no updated");
         Log::info($runnerKit);
-        if ($runnerKit->wasChanged('status') && $runnerKit->status === 'delivered') {
+        if ($runnerKit->deliveredDate) {
             $warehouse = TshirtWharehouse::where('size', $runnerKit->size)->first();
             if ($warehouse) {
                 $warehouse->tshirtMovements()->create([
