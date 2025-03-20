@@ -37,11 +37,11 @@ class ParticipantController extends Controller
         ]);
 
         try {
-
             Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant->load('event')));
             Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantCreatedEmail($participant));
         } catch (\Exception $e) {
             Log::error('Erro ao enviar email de confirmação!');
+            Log::error($e->getMessage());
         }
 
         Log::info("Inscrição realizada com sucesso! - ID: {$participant->id}");

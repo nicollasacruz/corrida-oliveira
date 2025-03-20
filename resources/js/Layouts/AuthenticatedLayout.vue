@@ -29,7 +29,7 @@ const giveConsent = () => {
     localStorage.setItem('cookieConsent', 'true')
     consentGiven.value = true
     window.dataLayer = window.dataLayer || []
-    window.dataLayer.push({ event: 'cookieConsentGiven' })
+    window.dataLayer.push({event: 'cookieConsentGiven'})
     gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage': 'granted',
@@ -42,7 +42,7 @@ const denyConsent = () => {
     consentDenied.value = true
     consentGiven.value = false
     window.dataLayer = window.dataLayer || []
-    window.dataLayer.push({ event: 'cookieConsentDenied' })
+    window.dataLayer.push({event: 'cookieConsentDenied'})
     gtag('consent', 'update', {
         'ad_storage': 'denied',
         'analytics_storage': 'denied',
@@ -66,15 +66,18 @@ onMounted(() => {
 
 <template>
     <div v-if="!consentGiven" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 text-center z-50">
-        <p>Este site utiliza cookies para melhorar a experiência do usuário. Ao continuar navegando, você concorda com o uso de cookies.</p>
+        <p>Este site utiliza cookies para melhorar a experiência do usuário. Ao continuar navegando, você concorda com o
+            uso de cookies.</p>
         <button @click="giveConsent" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Aceitar</button>
         <button @click="denyConsent" class="bg-red-500 text-white px-4 py-2 rounded mt-2">Recusar</button>
 
     </div>
-    <div>
-        <div class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col items-center transition-colors duration-300">
+    <div class="max-w-full">
+        <div
+            class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col items-center transition-colors duration-300">
             <!-- Navbar -->
-            <nav class="my-2 md:my-6 md:py-2 max-w-screen-lg border-b border-gray-100 md:bg-cyan-500 dark:bg-gray-800 w-full md:rounded-lg">
+            <nav
+                class="my-2 md:my-6 md:py-2 max-w-screen-lg border-b border-gray-100 md:bg-cyan-500 dark:bg-gray-800 w-full md:rounded-lg">
                 <div class="mx-auto max-w-7xl px-4 sm:px-4 lg:px-8">
                     <div class="flex h-24 md:h-20 justify-between items-center">
                         <div class="flex">
@@ -86,8 +89,9 @@ onMounted(() => {
                             </div>
                             <div class="hidden space-x-8 sm:flex sm:ml-10">
                                 <NavLink :href="route('home')" :active="route().current('home')">INSCRIÇÕES</NavLink>
-                                <NavLink :href="route('about')" :active="route().current('about')">NOSSO EVENTO</NavLink>
-<!--                                <NavLink :href="route('home')" :active="route().current('home')">APO</NavLink>-->
+                                <NavLink :href="route('about')" :active="route().current('about')">NOSSO EVENTO
+                                </NavLink>
+                                <!--                                <NavLink :href="route('home')" :active="route().current('home')">APO</NavLink>-->
                                 <NavLink href="/admin" :active="route().current('filament.admin.pages.dashboard')">
                                     ADMIN
                                 </NavLink>
@@ -149,7 +153,8 @@ onMounted(() => {
                             </button>
                         </div>
 
-                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
+                        <div
+                            class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
                             <h1
                                 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white max-w-4xl leading-tight tracking-tight shadow-sm"
                             >
@@ -159,31 +164,40 @@ onMounted(() => {
                     </header>
 
                     <main class="container px-4 md:px-6 py-12 md:py-16">
-                        <slot />
+                        <slot/>
                     </main>
                 </div>
             </div>
 
         </div>
-        <footer>
-            <div class="bg-gray-800 text-white py-2 text-center">
-                <span class="text-center block bg-gray-800 text-white py-4 text-2xl font-bold">
+        <footer class="w-full bg-gray-700 text-white">
+            <!-- Seção dos patrocinadores -->
+            <div class="py-2 text-center">
+                <span class="block text-2xl font-bold">
                     Patrocinadores
                 </span>
-                <!-- LOGOTIPOS-->
-                <div class="flex justify-center space-x-4">
-                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-16"/>
-                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-16"/>
-                    <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-16"/>
-                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-16"/>
-                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-16"/>
-                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-16"/>
-                    <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-16"/>
-                    <img :src="LogoTerra" alt="Logo Terra" class="h-16"/>
+
+                <!-- Container Rolável -->
+                <div class="flex overflow-x-auto whitespace-nowrap gap-x-4 px-4 py-4 scrollbar-hide">
+                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoTerra" alt="Logo Terra" class="h-16 flex-shrink-0"/>
+                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-16 flex-shrink-0"/>
                 </div>
             </div>
-            <div class="bg-gray-800 text-white py-4 px-4 text-center text-xs">
-                <p class="">Desenvolvido por <a href="https://wa.me/351910607636" target="_blank" class="text-xs font-bold">Nicollas Cruz</a></p>
+
+            <!-- Rodapé Final -->
+            <div class="py-4 px-4 text-center text-xs">
+                <p>Desenvolvido por
+                    <a href="https://wa.me/351910607636" target="_blank"
+                       class="font-bold text-blue-400 hover:text-blue-300">
+                        Nicollas Cruz
+                    </a>
+                </p>
                 <p>&copy; 2025 - Caminhada & Corrida Colorida Noturna de Oliveira</p>
             </div>
         </footer>

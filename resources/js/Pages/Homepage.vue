@@ -2,7 +2,7 @@
 import {ref} from 'vue';
 import {defineProps} from 'vue';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import {MapPin, Calendar, Euro} from 'lucide-vue-next';
+import {MapPin, Calendar, Euro, Footprints} from 'lucide-vue-next';
 
 defineProps({events: Array});
 
@@ -48,8 +48,8 @@ const toCurrency = (value) => {
                                 {{ event.runnerDate }}
                             </p>
                             <p class="flex items-center text-gray-700 dark:text-gray-300">
-                                <Euro class="w-4 h-4 mr-2"/>
-                                {{ toCurrency(event.subscriptionFee) }}
+                                <Footprints class="w-4 h-4 mr-2"/>
+                                {{ event.subscriptionFee.toString() }} passos
                             </p>
                         </div>
                         <a :href="route('event.show', { id: event.id })"
