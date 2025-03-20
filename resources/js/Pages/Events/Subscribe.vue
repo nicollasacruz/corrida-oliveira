@@ -40,7 +40,7 @@ const toggleDarkMode = () => {
 
 <template>
     <AuthenticatedLayout>
-        <Head title="Inscrições"/>
+        <Head title="Inscrição da Corrida"/>
 
         <div class="max-w-7xl mx-auto">
                 <div class=" w-full p-6 rounded-lg shadow-lg transition"

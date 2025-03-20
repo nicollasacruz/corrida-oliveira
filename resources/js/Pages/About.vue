@@ -7,7 +7,7 @@ defineProps({})
 
 <template>
     <Layout>
-        <Head title="Nosso Evento" />
+        <Head title="Sobre a APO" />
 
         <div class="max-w-7xl mx-auto text-justify">
             <p class="text-lg leading-relaxed font-semibold">Sobre a APO</p>

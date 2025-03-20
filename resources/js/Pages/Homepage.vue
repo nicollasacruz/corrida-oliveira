@@ -1,12 +1,8 @@
 <script setup>
 import {ref} from 'vue';
 import {defineProps} from 'vue';
-import NavLink from "@/Components/NavLink.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import ImageHeader from "../../img/crossing-their-own-capabilities2.jpg";
-import {useMotion} from '@vueuse/motion';
-import {Sun, Moon, MapPin, Calendar, Euro} from 'lucide-vue-next';
-import {Head} from "@inertiajs/vue3";
+import {MapPin, Calendar, Euro} from 'lucide-vue-next';
 
 defineProps({events: Array});
 
@@ -24,7 +20,7 @@ const toggleDarkMode = () => {
 
 <template>
     <AuthenticatedLayout>
-        <Head title="Inscrições" />
+<!-- <Head title="Inscrições" />-->
 
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
