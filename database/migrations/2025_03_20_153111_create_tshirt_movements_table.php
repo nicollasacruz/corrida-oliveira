@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('tshirt_movements', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tshirt_wharehouse_id')->constrained();
+            $table->integer('quantity');
+            $table->enum('type', ['input', 'output']);
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

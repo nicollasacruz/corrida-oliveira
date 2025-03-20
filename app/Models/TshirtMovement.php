@@ -11,10 +11,16 @@ class TshirtMovement extends Model
         'tshirt_wharehouse_id',
         'quantity',
         'type',
+        'user_id',
     ];
 
     public function tshirtWharehouse(): BelongsTo
     {
         return $this->belongsTo(TshirtWharehouse::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -6,6 +6,8 @@ use App\Filament\Resources\ParticipantResource\Pages;
 use App\Models\Participant;
 use App\Models\Payment;
 use App\Models\RunnerKit;
+use App\Models\TshirtMovement;
+use App\Models\TshirtWharehouse;
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -121,7 +123,9 @@ class ParticipantResource extends Resource
                     ->label('Entregar Kit')
                     ->requiresConfirmation()
                     ->color('primary')
-                    ->action(fn(Participant $record) => $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()]))
+                    ->action(fn(Participant $record) =>
+                        $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()])
+                    )
                     ->visible(fn(Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
                     ->icon('heroicon-s-gift'),
                 Tables\Actions\ViewAction::make(),
