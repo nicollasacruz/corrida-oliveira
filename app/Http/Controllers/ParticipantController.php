@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ParticipantConfirmEmail;
+use App\Mail\ParticipantCreatedEmail;
 use App\Models\Event;
 use App\Models\Participant;
 use App\Models\Payment;
@@ -37,7 +38,8 @@ class ParticipantController extends Controller
 
         try {
 
-            Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant));
+            Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant->load('event')));
+            Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantCreatedEmail($participant));
         } catch (\Exception $e) {
             Log::error('Erro ao enviar email de confirmação!');
         }
