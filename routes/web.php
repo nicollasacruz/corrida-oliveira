@@ -5,7 +5,10 @@ use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RunnerKitController;
+use App\Mail\ParticipantConfirmEmail;
+use App\Mail\TestEmail;
 use App\Models\Event;
+use App\Models\Participant;
 use App\Models\User;
 use chillerlan\QRCode\QRCode;
 use Illuminate\Foundation\Application;
@@ -20,6 +23,12 @@ Route::get('/qrcode', function () {
     printf('<img class="h-96" src="%s" alt="QR Code" />', $qrcode);
     return $qrcode;
 });
+
+Route::get('/email', function () {
+    Mail::to('nicollasacruz@gmail.com')->send(new ParticipantConfirmEmail(Participant::first()));
+    return 'Test email sent!';
+});
+
 Route::get('/', [EventController::class, 'index'])->name('home');
 Route::get('/about', [EventController::class, 'about'])->name('about');
 Route::get('/event/{id}', [EventController::class, 'show'])->name('event.show');

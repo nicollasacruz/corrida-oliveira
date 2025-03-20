@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ParticipantConfirmEmail;
 use App\Models\Event;
 use App\Models\Participant;
 use App\Models\Payment;
@@ -32,7 +33,7 @@ class ParticipantController extends Controller
             'value' => $event->subscriptionFee,
         ]);
 
-        //Mail::to($participant->email)->send(new RegistrationMail($participant));
+        Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant));
 
         return redirect()->back()->with('success', 'Inscrição realizada com sucesso!');
     }
