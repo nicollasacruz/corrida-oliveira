@@ -11,6 +11,10 @@ import LogoAlexandre from "../../img/alexandre.jpeg";
 import LogoIpon from "../../img/ipon.jpeg";
 import LogoNuwave from "../../img/nuwave.jpeg";
 import LogoOliveira from "../../img/oliveira.jpeg";
+import LogoDoceBiscoito from "../../img/docebiscoito.jpeg";
+import LogoMariaConc from "../../img/mariadaconceicao.jpeg";
+import LogoNunoBogas from "../../img/nunobogas.jpeg";
+import LogoTerra from "../../img/terra.jpeg";
 
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
 
@@ -172,6 +176,10 @@ onMounted(() => {
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-16"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-16"/>
                     <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-16"/>
+                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-16"/>
+                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-16"/>
+                    <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-16"/>
+                    <img :src="LogoTerra" alt="Logo Terra" class="h-16"/>
                 </div>
             </div>
             <div class="bg-gray-800 text-white py-4 px-4 text-center text-xs">
