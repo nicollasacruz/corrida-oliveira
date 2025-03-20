@@ -7,6 +7,11 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import {Link, usePage} from '@inertiajs/vue3';
 import ImageHeader from "../../img/crossing-their-own-capabilities2.jpg";
+import LogoAlexandre from "../../img/alexandre.jpeg";
+import LogoIpon from "../../img/ipon.jpeg";
+import LogoNuwave from "../../img/nuwave.jpeg";
+import LogoOliveira from "../../img/oliveira.jpeg";
+
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
 
 const showingNavigationDropdown = ref(false);
@@ -156,5 +161,23 @@ onMounted(() => {
             </div>
 
         </div>
+        <footer>
+            <div class="bg-gray-800 text-white py-2 text-center">
+                <span class="text-center block bg-gray-800 text-white py-4 text-2xl font-bold">
+                    Patrocinadores
+                </span>
+                <!-- LOGOTIPOS-->
+                <div class="flex justify-center space-x-4">
+                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-16"/>
+                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-16"/>
+                    <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-16"/>
+                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-16"/>
+                </div>
+            </div>
+            <div class="bg-gray-800 text-white py-4 px-4 text-center text-xs">
+                <p class="">Desenvolvido por <a href="https://www.linkedin.com/in/nicollascruz/" target="_blank" class="text-xs font-bold">Nicollas Cruz</a></p>
+                <p>&copy; 2025 - Caminhada & Corrida Colorida Noturna de Oliveira</p>
+            </div>
+        </footer>
     </div>
 </template>
