@@ -14,20 +14,42 @@ const user = usePage().props.auth.user;
 const darkMode = ref(false);
 
 const consentGiven = ref(localStorage.getItem('cookieConsent') === 'true')
+const consentDenied = ref(localStorage.getItem('cookieConsent') === 'false')
 
 const giveConsent = () => {
     localStorage.setItem('cookieConsent', 'true')
     consentGiven.value = true
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push({ event: 'cookieConsentGiven' })
+    gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+    })
+}
+const denyConsent = () => {
+    localStorage.setItem('cookieConsent', 'false')
+    consentDenied.value = true
+    consentGiven.value = false
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: 'cookieConsentDenied' })
+    gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+    })
 }
 
 onMounted(() => {
     window.dataLayer = window.dataLayer || []
     window.dataLayer.push({
         'event': 'defaultConsent',
-        'analytics_storage': consentGiven.value ? 'granted' : 'denied',
-        'ad_storage': consentGiven.value ? 'granted' : 'denied'
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
     })
 })
 
@@ -37,6 +59,8 @@ onMounted(() => {
     <div v-if="!consentGiven" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 text-center z-50">
         <p>Este site utiliza cookies para melhorar a experiência do usuário. Ao continuar navegando, você concorda com o uso de cookies.</p>
         <button @click="giveConsent" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Aceitar</button>
+        <button @click="denyConsent" class="bg-red-500 text-white px-4 py-2 rounded mt-2">Recusar</button>
+
     </div>
     <div>
         <div class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col items-center transition-colors duration-300">
