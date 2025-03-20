@@ -13,7 +13,7 @@ class RunnerKitObserver
      */
     public function created(RunnerKit $runnerKit): void
     {
-        //
+        Log::info("Entrei no created");
     }
 
     /**
