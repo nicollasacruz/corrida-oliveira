@@ -16,6 +16,13 @@ const toggleDarkMode = () => {
         document.documentElement.classList.remove('dark');
     }
 };
+
+const toCurrency = (value) => {
+    return new Intl.NumberFormat('pt-PT', {
+        style: 'currency',
+        currency: 'EUR'
+    }).format(value);
+};
 </script>
 
 <template>
@@ -42,7 +49,7 @@ const toggleDarkMode = () => {
                             </p>
                             <p class="flex items-center text-gray-700 dark:text-gray-300">
                                 <Euro class="w-4 h-4 mr-2"/>
-                                {{ event.subscriptionFee }}
+                                {{ toCurrency(event.subscriptionFee) }}
                             </p>
                         </div>
                         <a :href="route('event.show', { id: event.id })"
