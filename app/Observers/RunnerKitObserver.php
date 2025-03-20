@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\RunnerKit;
 use App\Models\TshirtWharehouse;
+use Log;
 
 class RunnerKitObserver
 {
@@ -28,9 +29,13 @@ class RunnerKitObserver
                     'size' => $runnerKit->size,
                     'type' => 'output',
                 ]);
-                $warehouse->quantity->decrement(1);
+                $warehouse->decrement('quantity');
                 $warehouse->save();
+            } else {
+                Log::info("Warehouse not found for size {$runnerKit->size}");
             }
+        } else {
+            Log::info("RunnerKit status was not changed to delivered");
         }
     }
 
