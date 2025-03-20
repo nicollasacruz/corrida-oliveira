@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
@@ -13,9 +13,31 @@ const showingNavigationDropdown = ref(false);
 const user = usePage().props.auth.user;
 const darkMode = ref(false);
 
+const consentGiven = ref(localStorage.getItem('cookieConsent') === 'true')
+
+const giveConsent = () => {
+    localStorage.setItem('cookieConsent', 'true')
+    consentGiven.value = true
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ event: 'cookieConsentGiven' })
+}
+
+onMounted(() => {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({
+        'event': 'defaultConsent',
+        'analytics_storage': consentGiven.value ? 'granted' : 'denied',
+        'ad_storage': consentGiven.value ? 'granted' : 'denied'
+    })
+})
+
 </script>
 
 <template>
+    <div v-if="!consentGiven" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 text-center z-50">
+        <p>Este site utiliza cookies para melhorar a experiência do usuário. Ao continuar navegando, você concorda com o uso de cookies.</p>
+        <button @click="giveConsent" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Aceitar</button>
+    </div>
     <div>
         <div class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col items-center transition-colors duration-300">
             <!-- Navbar -->
