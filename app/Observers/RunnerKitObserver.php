@@ -29,6 +29,7 @@ class RunnerKitObserver
                 $warehouse->tshirtMovements()->create([
                     'user_id' => \Auth::user()->id,
                     'size' => $runnerKit->size,
+                    'quantity' => 1,
                     'type' => 'output',
                 ]);
                 $warehouse->decrement('quantity');
