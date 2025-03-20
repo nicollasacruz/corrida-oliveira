@@ -102,7 +102,7 @@ const toggleDarkMode = () => {
                         <option v-if="!event.isChildEvent" value="M">M</option>
                         <option v-if="!event.isChildEvent" value="L">L</option>
                         <option v-if="!event.isChildEvent" value="XL">XL</option>
-                        <option v-if="!event.isChildEvent" value="2XL">2XL</option>
+                        <option v-if="!event.isChildEvent" value="XXL">XXL</option>
                         <option v-if="event.isChildEvent" value="6-8">6-8</option>
                         <option v-if="event.isChildEvent" value="8-10">8-10</option>
                     </select>
