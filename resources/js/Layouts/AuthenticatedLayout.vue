@@ -175,7 +175,7 @@ onMounted(() => {
                 </div>
             </div>
             <div class="bg-gray-800 text-white py-4 px-4 text-center text-xs">
-                <p class="">Desenvolvido por <a href="https://www.linkedin.com/in/nicollascruz/" target="_blank" class="text-xs font-bold">Nicollas Cruz</a></p>
+                <p class="">Desenvolvido por <a href="https://wa.me/351910607636" target="_blank" class="text-xs font-bold">Nicollas Cruz</a></p>
                 <p>&copy; 2025 - Caminhada & Corrida Colorida Noturna de Oliveira</p>
             </div>
         </footer>
