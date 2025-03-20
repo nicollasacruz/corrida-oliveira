@@ -123,9 +123,10 @@ class ParticipantResource extends Resource
                     ->label('Entregar Kit')
                     ->requiresConfirmation()
                     ->color('primary')
-                    ->action(fn(Participant $record) =>
-                        $record->runnerKit()->update(['status' => 'delivered', 'deliveredDate' => now()])
-                    )
+                    ->action(fn(Participant $record) => tap($record->runnerKit)->update([
+                        'status' => 'delivered',
+                        'deliveredDate' => now(),
+                    ]))
                     ->visible(fn(Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
                     ->icon('heroicon-s-gift'),
                 Tables\Actions\ViewAction::make(),
