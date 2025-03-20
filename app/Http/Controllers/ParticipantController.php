@@ -9,6 +9,8 @@ use App\Models\Payment;
 use App\Models\RunnerKit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Log;
+
 //use App\Mail\RegistrationMail;
 
 class ParticipantController extends Controller
@@ -33,7 +35,14 @@ class ParticipantController extends Controller
             'value' => $event->subscriptionFee,
         ]);
 
-        Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant));
+        try {
+
+            Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant));
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar email de confirmação!');
+        }
+
+        Log::info("Inscrição realizada com sucesso! - ID: {$participant->id}");
 
         return redirect()->back()->with('success', 'Inscrição realizada com sucesso!');
     }
