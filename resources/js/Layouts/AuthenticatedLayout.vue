@@ -178,7 +178,7 @@ onMounted(() => {
                 </span>
 
                 <!-- Container Rolável -->
-                <div class="flex overflow-x-auto whitespace-nowrap gap-x-4 px-4 py-4 scrollbar-hide">
+                <div class="flex justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 py-4 scrollbar-hide">
                     <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-16 flex-shrink-0"/>
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-16 flex-shrink-0"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-16 flex-shrink-0"/>
