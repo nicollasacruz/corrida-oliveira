@@ -33,11 +33,10 @@ class RunnerKitObserver
                 ]);
                 $warehouse->decrement('quantity');
                 $warehouse->save();
+                Log::info("Kit do corredor {$runnerKit->participant->fullName} foi entregue");
             } else {
                 Log::info("Warehouse not found for size {$runnerKit->size}");
             }
-        } else {
-            Log::info("RunnerKit status was not changed to delivered");
         }
     }
 
