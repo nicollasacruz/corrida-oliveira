@@ -43,17 +43,13 @@ const toggleDarkMode = () => {
         <Head title="Inscrições"/>
 
         <div class="max-w-7xl mx-auto">
-
-
-
-
                 <div class=" w-full p-6 rounded-lg shadow-lg transition"
                      :class="{ 'bg-gray-800': darkMode, 'bg-white': !darkMode }">
 
                     <h1 class="text-3xl font-bold mb-4">{{ event.name }}</h1>
                     <p class="mb-4">{{ event.description }}</p>
                     <p class="font-semibold mb-2">📍 Location: {{ event.location }}</p>
-                    <p class="font-semibold mb-4">📅 Date: {{ event.startDate }}</p>
+                    <p class="font-semibold mb-4">📅 Date: {{ event.runnerDate }}</p>
 
                     <h2 class="text-xl font-semibold mb-6">📝 Inscrição</h2>
 

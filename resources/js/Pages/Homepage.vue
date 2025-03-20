@@ -42,7 +42,7 @@ const toggleDarkMode = () => {
                             </p>
                             <p class="flex items-center text-gray-700 dark:text-gray-300">
                                 <Calendar class="w-4 h-4 mr-2"/>
-                                {{ event.endDate }}
+                                {{ event.runnerDate }}
                             </p>
                             <p class="flex items-center text-gray-700 dark:text-gray-300">
                                 <Euro class="w-4 h-4 mr-2"/>

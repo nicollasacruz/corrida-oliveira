@@ -32,6 +32,10 @@ class EventResource extends Resource
                     ->label('Description')
                     ->required()
                     ->placeholder('Description'),
+                'runnerDate' => Forms\Components\DatePicker::make('runnerDate')
+                    ->label('Data da Corrida')
+                    ->required()
+                    ->placeholder('Data da Corrida'),
                 'startDate' => Forms\Components\DatePicker::make('startDate')
                     ->label('Start Date')
                     ->required()
@@ -65,6 +69,10 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('participants_count')
                     ->label('Participants')
                     ->counts('participants')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('runnerDate')
+                    ->label('Data da Corrida')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('startDate')
                     ->label('Start Date')
