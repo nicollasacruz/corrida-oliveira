@@ -28,7 +28,7 @@
     <!-- Botão de Ação -->
     <tr>
         <td style="text-align: center; padding: 20px;">
-            <a href="https://meusite.com/eventos" style="background-color: #FF9800; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 16px; font-weight: bold; display: inline-block;">
+            <a href="https://oliveira.run.place/about" style="background-color: #FF9800; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 16px; font-weight: bold; display: inline-block;">
                 Ver Detalhes do Evento
             </a>
         </td>
@@ -37,8 +37,8 @@
     <!-- Rodapé -->
     <tr>
         <td style="background-color: #f4f4f4; text-align: center; padding: 15px; font-size: 14px; color: #666; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
-            <p>Se precisar de ajuda, entre em contato conosco em <a href="mailto:suporte@meusite.com" style="color: #FF9800; text-decoration: none;">suporte@meusite.com</a></p>
-            <p style="margin-top: 8px;">&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+            <p>Se precisar de ajuda, entre em contacto conosco em <a href="mailto:contacto@oliveira.run.place" style="color: #FF9800; text-decoration: none;">contacto@oliveira.run.place</a></p>
+            <p style="margin-top: 8px;">&copy; 2025 Caminhada Colorida de Oliveira. Todos os direitos reservados.</p>
         </td>
     </tr>
 </table>

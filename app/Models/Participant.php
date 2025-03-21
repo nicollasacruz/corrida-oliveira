@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Participant extends Model
 {
     /** @use HasFactory<ParticipantFactory> */
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = ['fullName', 'email', 'phone', 'dateBorn','event_id', 'sizeTshirt', 'responsibleName'];
 
