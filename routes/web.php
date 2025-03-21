@@ -2,16 +2,10 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ParticipantController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RunnerKitController;
 use App\Mail\ParticipantConfirmEmail;
-use App\Mail\TestEmail;
-use App\Models\Event;
 use App\Models\Participant;
-use App\Models\User;
 use chillerlan\QRCode\QRCode;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
