@@ -10,6 +10,7 @@ use App\Models\Payment;
 use App\Models\RunnerKit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
 use Log;
 
 //use App\Mail\RegistrationMail;
@@ -21,7 +22,14 @@ class ParticipantController extends Controller
         $event = $id;
         $validated = $request->validate([
             'fullName' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('participants')->where(function ($query) use ($request) {
+                    return $query->where('event_id', $request->input('event_id'))
+                        ->where('fullName', $request->input('fullName'));
+                }),
+            ],
             'phone' => 'required|string',
             'dateBorn' => 'required|date',
             'sizeTshirt' => 'required|string',
