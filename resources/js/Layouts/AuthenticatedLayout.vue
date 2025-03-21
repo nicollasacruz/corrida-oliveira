@@ -15,6 +15,13 @@ import LogoDoceBiscoito from "../../img/docebiscoito.jpeg";
 import LogoMariaConc from "../../img/mariadaconceicao.jpeg";
 import LogoNunoBogas from "../../img/nunobogas.jpeg";
 import LogoTerra from "../../img/terra.jpeg";
+import LogoLimbo from "../../img/LimboTech.jpeg";
+import LogoCeramicaNormand from "../../img/CeramicaNormand.jpeg";
+import LogoCeramicaJM from "../../img/CeramicaJM.jpeg";
+import LogoEstrelaDeAnis from "../../img/EstrelaDeAnis.jpeg";
+import LogoJcoAuto from "../../img/JcoAuto.jpeg";
+import LogoTalhoDasAldeias from "../../img/TalhoDasAldeias.jpeg";
+
 
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
 
@@ -177,16 +184,46 @@ onMounted(() => {
                     Patrocinadores
                 </span>
 
+<!--                <div class="relative w-full overflow-hidden py-6">-->
+<!--                    <div class="flex gap-x-8 animate-scroll whitespace-nowrap w-max">-->
+<!--                        &lt;!&ndash; Logos (repetidos para looping) &ndash;&gt;-->
+<!--                        <template v-for="i in 2" :key="i">-->
+<!--                            <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoLimbo" alt="Logo Limbo Tech" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>-->
+<!--                            <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>-->
+<!--                        </template>-->
+<!--                    </div>-->
+<!--                </div>-->
+
                 <!-- Container Rolável -->
-                <div class="flex justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 py-4 scrollbar-hide">
-                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoTerra" alt="Logo Terra" class="h-16 flex-shrink-0"/>
-                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-16 flex-shrink-0"/>
+                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
+                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoLimbo" alt="Logo Limbo Tech" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>
+                </div>
+                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
+                    <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>
                 </div>
             </div>
 
@@ -195,7 +232,7 @@ onMounted(() => {
                 <p>Desenvolvido por
                     <a href="https://wa.me/351910607636" target="_blank"
                        class="font-bold text-blue-400 hover:text-blue-300">
-                        Nicollas Cruz
+                        Nicollas Cruz - Limbo Tecnologia
                     </a>
                 </p>
                 <p>&copy; 2025 - Caminhada & Corrida Colorida Noturna de Oliveira</p>

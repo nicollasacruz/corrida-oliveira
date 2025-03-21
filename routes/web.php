@@ -26,6 +26,7 @@ Route::get('/qrcode', function () {
 
 Route::get('/email', function () {
     Mail::to('nicollasacruz@gmail.com')->send(new ParticipantConfirmEmail(Participant::first()));
+    Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantConfirmEmail(Participant::first()));
     return 'Test email sent!';
 });
 

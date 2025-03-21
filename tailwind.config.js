@@ -23,6 +23,7 @@ export default {
                 sans: ['Inter', 'sans-serif'],
                 display: ['SF Pro Display', 'Inter', 'sans-serif'],
             },
+
             colors: {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
@@ -83,6 +84,10 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             keyframes: {
+                scroll: {
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-50%)' },
+                },
                 'accordion-down': {
                     from: {
                         height: '0'
@@ -145,6 +150,7 @@ export default {
                 'image-zoom': 'image-zoom 1.5s ease-out',
                 'pulse-light': 'pulse-light 2s infinite',
                 'card-hover': 'card-hover 0.3s forwards',
+                'scroll': 'scroll 30s linear infinite',
             },
             boxShadow: {
                 'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
