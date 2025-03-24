@@ -95,6 +95,14 @@ class ParticipantResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.status')
                     ->label('Status do Pagamento')
+                    // trocar o valor do status do pagamento para um texto mais amigável e legível com badge
+                    ->format(fn($value) => match ($value) {
+                        'pending' => '<span class="badge badge-warning">Pendente</span>',
+                        'paid' => '<span class="badge badge-success">Pago</span>',
+                        'canceled' => '<span class="badge badge-danger">Cancelado</span>',
+                        default => $value,
+                    })
+
                     ->sortable(),
             ])
             ->filters([
