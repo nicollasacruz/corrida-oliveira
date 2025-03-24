@@ -71,11 +71,11 @@ class ParticipantResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Inscrição em')
+                    ->formatState(function ($value) {
+                        return Carbon::parse($value)->format('dd/mm/YYYY');
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('event.name')
                     ->label('Evento')
@@ -90,7 +90,7 @@ class ParticipantResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sizeTshirt')
-                    ->label('Tamanho da Camiseta')
+                    ->label('Tamanho da Camisola')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('payment.status')
