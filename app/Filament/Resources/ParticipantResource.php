@@ -120,8 +120,8 @@ class ParticipantResource extends Resource
                 Tables\Filters\SelectFilter::make('sizeTshirt')
                     ->label('Tamanho da Camiseta')
                     ->options([
+                        '6-8' => '6-8',
                         '8-10' => '8-10',
-                        '10-12' => '10-12',
                         'S' => 'S',
                         'M' => 'M',
                         'L' => 'L',
