@@ -113,9 +113,10 @@ class ParticipantResource extends Resource
                 // filtrar por evento mostrando o nome do evento
                 Tables\Filters\SelectFilter::make('event_id')
                     ->label('Evento')
-                    ->options(fn() => Event::pluck('name', 'id')->toArray())
-                    ->default('all'),
-                // filtrar por status do pagamento
+                    ->options([
+                        '' => 'Todos',
+                        ...Event::pluck('name', 'id')->toArray()
+                    ]),
                 Tables\Filters\SelectFilter::make('payment_status')
                     ->label('Status do Pagamento')
                     ->options([
@@ -128,6 +129,7 @@ class ParticipantResource extends Resource
                             $query->whereHas('payment', fn($q) => $q->where('status', $value));
                         }
                     }),
+
             ])
             ->actions([
                 Action::make('receberPagamento')
