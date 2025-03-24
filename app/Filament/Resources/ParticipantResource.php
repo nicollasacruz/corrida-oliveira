@@ -117,11 +117,7 @@ class ParticipantResource extends Resource
                         '' => 'Todos',
                         ...Event::pluck('name', 'id')->toArray()
                     ])
-                    ->query(function (Builder $query, $value) {
-                        if ($value !== '') {
-                            $query->where('event_id', $value);
-                        }
-                    }),
+                    ->default(''),
                 // Filtro por Status do Pagamento
 //                Tables\Filters\SelectFilter::make('payment_status')
 //                    ->label('Status do Pagamento')
