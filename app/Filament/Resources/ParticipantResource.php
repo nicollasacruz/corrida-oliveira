@@ -74,6 +74,9 @@ class ParticipantResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Inscrição em')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('event.name')
                     ->label('Evento')
                     ->searchable()
