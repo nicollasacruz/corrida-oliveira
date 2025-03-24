@@ -110,15 +110,13 @@ class ParticipantResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                // Filtro por Evento
                 Tables\Filters\SelectFilter::make('event_id')
                     ->label('Evento')
                     ->options([
-                        '' => 'Todos',
                         ...Event::pluck('name', 'id')->toArray()
                     ])
                     ->default(''),
-                // Filtro por Status do Pagamento
+
                 Tables\Filters\SelectFilter::make('sizeTshirt')
                     ->label('Tamanho da Camiseta')
                     ->options([
@@ -131,7 +129,7 @@ class ParticipantResource extends Resource
                         'XXL' => 'XXL',
                     ])
                     ->default(''),
-                // Filtro por Status do Pagamento
+
                 Tables\Filters\SelectFilter::make('payment.status')
                     ->label('Status do Pagamento')
                     ->options([
