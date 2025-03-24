@@ -136,9 +136,12 @@ class ParticipantResource extends Resource
                     ]))
                     ->visible(fn(Participant $record) => $record->runnerKit && $record->runnerKit->status !== 'delivered')
                     ->icon('heroicon-s-gift'),
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])->label('Ações'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
