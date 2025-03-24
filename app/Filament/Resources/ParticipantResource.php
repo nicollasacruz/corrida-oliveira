@@ -122,7 +122,6 @@ class ParticipantResource extends Resource
                 Tables\Filters\SelectFilter::make('sizeTshirt')
                     ->label('Tamanho da Camiseta')
                     ->options([
-                        '' => 'Todos',
                         '8-10' => '8-10',
                         '10-12' => '10-12',
                         'S' => 'S',
@@ -136,7 +135,6 @@ class ParticipantResource extends Resource
                 Tables\Filters\SelectFilter::make('payment.status')
                     ->label('Status do Pagamento')
                     ->options([
-                        '' => 'Todos',
                         'pending' => 'Pendente',
                         'paid' => 'Pago',
                     ])
