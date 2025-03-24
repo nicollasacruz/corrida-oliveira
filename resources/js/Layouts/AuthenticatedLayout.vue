@@ -24,6 +24,7 @@ import LogoTalhoDasAldeias from "../../img/TalhoDasAldeias.jpeg";
 import LogoCeramicaDaArieira from "../../img/CERAMICA DA ARIEIRA.jpeg";
 import LogoHenriqueCoelho from "../../img/Henrique Coelho.jpeg";
 import LogoPedroBike from "../../img/PEDROBIKEARTE.jpeg";
+import LogoDivisoTetos from "../../img/divisotetos.png";
 
 
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
@@ -219,6 +220,7 @@ onMounted(() => {
                     <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>
                     <img :src="LogoPedroBike" alt="Logo Pedro Bike Art" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoDivisoTetos" alt="Logo empresa Divisotetos" class="h-14 flex-shrink-0"/>
                 </div>
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
                     <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
