@@ -123,18 +123,18 @@ class ParticipantResource extends Resource
                         }
                     }),
                 // Filtro por Status do Pagamento
-                Tables\Filters\SelectFilter::make('payment_status')
-                    ->label('Status do Pagamento')
-                    ->options([
-                        '' => 'Todos',
-                        'pending' => 'Pendente',
-                        'paid' => 'Pago',
-                    ])
-                    ->query(function (Builder $query, $value) {
-                        if ($value !== '') {
-                            $query->whereHas('payment', fn($q) => $q->where('status', $value));
-                        }
-                    }),
+//                Tables\Filters\SelectFilter::make('payment_status')
+//                    ->label('Status do Pagamento')
+//                    ->options([
+//                        '' => 'Todos',
+//                        'pending' => 'Pendente',
+//                        'paid' => 'Pago',
+//                    ])
+//                    ->query(function (Builder $query, $value) {
+//                        if ($value !== '') {
+//                            $query->whereHas('payment', fn($q) => $q->where('status', $value));
+//                        }
+//                    }),
             ])
             ->actions([
                 Action::make('receberPagamento')
