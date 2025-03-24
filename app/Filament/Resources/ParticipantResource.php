@@ -135,7 +135,7 @@ class ParticipantResource extends Resource
                     ->options([
                         'pending' => 'Pendente',
                         'paid' => 'Pago',
-                    ])
+                    ])->relationship('payment', 'status')
                     ->default(''),
             ])
             ->actions([
