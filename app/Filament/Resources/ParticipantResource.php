@@ -125,11 +125,10 @@ class ParticipantResource extends Resource
                         'paid' => 'Pago',
                     ])
                     ->query(function (Builder $query, $value) {
-                        if ($value !== '') {
-                            $query->whereHas('payment', fn($q) => $q->where('status', $value));
+                        if (!empty($value)) {
+                            $query->whereHas('payment', fn ($q) => $q->where('status', $value));
                         }
                     }),
-
             ])
             ->actions([
                 Action::make('receberPagamento')
