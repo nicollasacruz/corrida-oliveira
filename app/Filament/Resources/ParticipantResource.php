@@ -116,14 +116,14 @@ class ParticipantResource extends Resource
                     ->options(fn() => Event::pluck('name', 'id')->toArray())
                     ->default('all'),
                 // filtrar por status do pagamento
-                Tables\Filters\SelectFilter::make('payment.status')
-                    ->label('Status do Pagamento')
-                    ->options([
-                        'all' => 'Todos',
-                        'pending' => 'Pendente',
-                        'paid' => 'Pago',
-                    ])
-                    ->default('all'),
+//                Tables\Filters\SelectFilter::make('payment.status')
+//                    ->label('Status do Pagamento')
+//                    ->options([
+//                        'all' => 'Todos',
+//                        'pending' => 'Pendente',
+//                        'paid' => 'Pago',
+//                    ])
+//                    ->default('all'),
             ])
             ->actions([
                 Action::make('receberPagamento')
