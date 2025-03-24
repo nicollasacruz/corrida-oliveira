@@ -119,18 +119,28 @@ class ParticipantResource extends Resource
                     ])
                     ->default(''),
                 // Filtro por Status do Pagamento
-//                Tables\Filters\SelectFilter::make('payment_status')
-//                    ->label('Status do Pagamento')
-//                    ->options([
-//                        '' => 'Todos',
-//                        'pending' => 'Pendente',
-//                        'paid' => 'Pago',
-//                    ])
-//                    ->query(function (Builder $query, $value) {
-//                        if ($value !== '') {
-//                            $query->whereHas('payment', fn($q) => $q->where('status', $value));
-//                        }
-//                    }),
+                Tables\Filters\SelectFilter::make('sizeTshirt')
+                    ->label('Tamanho da Camiseta')
+                    ->options([
+                        '' => 'Todos',
+                        '8-10' => '8-10',
+                        '10-12' => '10-12',
+                        'S' => 'S',
+                        'M' => 'M',
+                        'L' => 'L',
+                        'XL' => 'XL',
+                        'XXL' => 'XXL',
+                    ])
+                    ->default(''),
+                // Filtro por Status do Pagamento
+                Tables\Filters\SelectFilter::make('payment.status')
+                    ->label('Status do Pagamento')
+                    ->options([
+                        '' => 'Todos',
+                        'pending' => 'Pendente',
+                        'paid' => 'Pago',
+                    ])
+                    ->default(''),
             ])
             ->actions([
                 Action::make('receberPagamento')
