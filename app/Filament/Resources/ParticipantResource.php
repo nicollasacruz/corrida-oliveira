@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ParticipantResource\Pages;
+use App\Models\Event;
 use App\Models\Participant;
 use App\Models\Payment;
 use App\Models\RunnerKit;
@@ -109,7 +110,20 @@ class ParticipantResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                // filtrar por evento mostrando o nome do evento
+                Tables\Filters\SelectFilter::make('event_id')
+                    ->label('Evento')
+                    ->options(fn() => Event::pluck('name', 'id')->toArray())
+                    ->default('all'),
+                // filtrar por status do pagamento
+                Tables\Filters\SelectFilter::make('payment.status')
+                    ->label('Status do Pagamento')
+                    ->options([
+                        'all' => 'Todos',
+                        'pending' => 'Pendente',
+                        'paid' => 'Pago',
+                    ])
+                    ->default('all'),
             ])
             ->actions([
                 Action::make('receberPagamento')
