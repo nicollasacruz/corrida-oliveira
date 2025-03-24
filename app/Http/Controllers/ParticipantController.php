@@ -6,8 +6,7 @@ use App\Mail\ParticipantConfirmEmail;
 use App\Mail\ParticipantCreatedEmail;
 use App\Models\Event;
 use App\Models\Participant;
-use App\Models\Payment;
-use App\Models\RunnerKit;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
@@ -36,11 +35,16 @@ class ParticipantController extends Controller
             // responsibleName is required only if the participant is a minor (under 13 years old)
             'responsibleName' => 'required_if:dateBorn,>=,' . now()->subYears(13)->format('Y-m-d'),
         ]);
+
+        /**
+         * @var Participant $participant
+         */
         $participant = $event->participants()->create($validated);
 
         $participant->runnerKit()->create([
             'size' => $validated['sizeTshirt'],
         ]);
+
         $participant->payment()->create([
             'paymentMethod' => 'cash',
             'value' => $event->subscriptionFee,
@@ -49,12 +53,12 @@ class ParticipantController extends Controller
         try {
             Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant->load('event')));
             Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantCreatedEmail($participant));
-        } catch (\Exception $e) {
-            Log::error('Erro ao enviar email de confirmação!');
+        } catch (Exception $e) {
+            Log::error('Error ao enviar email de confirmação!');
             Log::error($e->getMessage());
         }
 
-        Log::info("Inscrição realizada com sucesso! - ID: {$participant->id}");
+        Log::info("Inscrição realizada com sucesso! - ID: $participant->id");
 
         return redirect()->back()->with('success', 'Inscrição realizada com sucesso!');
     }
