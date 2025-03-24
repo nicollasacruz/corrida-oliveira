@@ -33,6 +33,8 @@ class ParticipantController extends Controller
             'phone' => 'required|string',
             'dateBorn' => 'required|date',
             'sizeTshirt' => 'required|string',
+            // responsibleName is required only if the participant is a minor (under 13 years old)
+            'responsibleName' => 'required_if:dateBorn,>=,' . now()->subYears(13)->format('Y-m-d'),
         ]);
         $participant = $event->participants()->create($validated);
 

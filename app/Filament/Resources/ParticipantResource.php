@@ -85,31 +85,16 @@ class ParticipantResource extends Resource
                     ->label('Nome Completo')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
-                    ->searchable()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->label('Telefone')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('dateBorn')
-                    ->label('Data de Nascimento')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sizeTshirt')
                     ->label('Tamanho da Camiseta')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('responsableName')
-                    ->label('Nome do Responsável')
-                    ->searchable()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('payment.status')
                     ->label('Status do Pagamento')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('runnerKit.status')
-                    ->label('Status do Kit')
                     ->sortable(),
             ])
             ->filters([
