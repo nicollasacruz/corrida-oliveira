@@ -129,14 +129,6 @@ class ParticipantResource extends Resource
                         'XXL' => 'XXL',
                     ])
                     ->default(''),
-
-                Tables\Filters\SelectFilter::make('payment.status')
-                    ->label('Status do Pagamento')
-                    ->options([
-                        'pending' => 'Pendente',
-                        'paid' => 'Pago',
-                    ])->relationship('payment', 'status')
-                    ->default(''),
             ])
             ->actions([
                 Action::make('receberPagamento')
