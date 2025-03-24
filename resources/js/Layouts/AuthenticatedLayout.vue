@@ -21,6 +21,9 @@ import LogoCeramicaJM from "../../img/CeramicaJM.jpeg";
 import LogoEstrelaDeAnis from "../../img/EstrelaDeAnis.jpeg";
 import LogoJcoAuto from "../../img/JcoAuto.jpeg";
 import LogoTalhoDasAldeias from "../../img/TalhoDasAldeias.jpeg";
+import LogoCeramicaDaArieira from "../../img/CERAMICA DA ARIEIRA.jpeg";
+import LogoHenriqueCoelho from "../../img/Henrique Coelho.jpeg";
+import LogoPedroBike from "../../img/PEDROBIKEARTE.jpeg";
 
 
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
@@ -215,6 +218,7 @@ onMounted(() => {
                     <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
                     <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoPedroBike" alt="Logo Pedro Bike Art" class="h-14 flex-shrink-0"/>
                 </div>
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
                     <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
@@ -223,7 +227,9 @@ onMounted(() => {
                     <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>
                     <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>
                     <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoHenriqueCoelho" alt="Logo Henrique" class="h-14 flex-shrink-0"/>
                     <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoCeramicaDaArieira" alt="Logo Ceramica da Arieira" class="h-14 flex-shrink-0"/>
                 </div>
             </div>
 
