@@ -21,8 +21,9 @@ Route::get('/qrcode', function () {
 Route::get('/email', function () {
     try {
         Mail::to('nicollasacruz@gmail.com')->send(new ParticipantConfirmEmail(Participant::first()));
-        Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantConfirmEmail(Participant::first()));
+        //Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantConfirmEmail(Participant::first()));
         Mail::to('elisabete@oliveira.run.place')->send(new ParticipantConfirmEmail(Participant::first()));
+        Mail::to('test-ytmfrksv2@srv1.mail-tester.com')->send(new ParticipantConfirmEmail(Participant::first()));
         return 'Test email sent!';
     } catch (Exception $e) {
         Log::error("Error ao enviar email de confirmação no teste!");
