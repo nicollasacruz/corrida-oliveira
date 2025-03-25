@@ -52,7 +52,7 @@ class ParticipantController extends Controller
 
         try {
             Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant));
-            Mail::to('elisabete@oliveira.run.place')->send(new ParticipantCreatedEmail($participant));
+            Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantCreatedEmail($participant));
         } catch (Exception $e) {
             Log::error('Error ao enviar email de confirmação!');
             Log::error($e->getMessage());
