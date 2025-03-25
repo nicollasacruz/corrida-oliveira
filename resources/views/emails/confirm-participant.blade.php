@@ -19,9 +19,9 @@
     <tr>
         <td style="padding: 20px; text-align: center;">
             <h2 style="color: #333; font-size: 22px; margin-bottom: 10px;">Olá, <span style="color: #005fe0;">{{ $fullName }}</span>! 👋</h2>
+            <span style="color: #005fe0; font-size: 22px">Sua inscrição foi confirmada com sucesso! 🎊</span>
             <p style="color: #555; font-size: 16px; line-height: 1.5;">
                 É com prazer que confirmamos a sua inscrição no evento <strong style="color: #005fe0;">{{ $eventName }}</strong>. <br>
-                <span style="color: #005fe0;">Sua inscrição foi confirmada com sucesso! 🎊</span>
             </p>
             <p style="color: #555; font-size: 16px; line-height: 1.5;">
                 Estamos ansiosos para contar com a sua participação neste evento cheio de energia e diversão! 🏃‍♂️🏃‍♀️
@@ -58,22 +58,13 @@
     </tr>
 </table>
 
-<span class="">Atenciosamente</span>
+<span class="">Atenciosamente,</span>
+<br />
 <strong class="">Elisabete Bandeira</strong>
+<br />
 <span class="">Tesoureira</span>
+<br />
 <strong class="">Associação de Pais de Oliveira</strong>
 
 </body>
 </html>
-
-
-Caro(a) participante,
-
-É com prazer que confirmamos a sua inscrição na Corrida/Caminhada Colorida Noturna de Oliveira, que terá lugar no próximo dia 24 de Maio de 2025. Estamos ansiosos para contar com a sua participação neste evento cheio de energia e diversão!
-
-
-
-Atenciosamente,
-Elisabete Bandeira
-Tesoureira
-Associação de Pais de Oliveira
