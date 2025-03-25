@@ -41,14 +41,20 @@
     </tr>
 
     <!-- Botão de Ação -->
-    <tr>
-        <td style="text-align: center; padding: 20px;">
-            <a href="https://oliveira.run.place/about" style="background-color: #005fe0; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 16px; font-weight: bold; display: inline-block;">
-                Ver Detalhes do Evento
-            </a>
-        </td>
-    </tr>
-
+{{--    <tr>--}}
+{{--        <td style="text-align: center; padding: 20px;">--}}
+{{--            <a href="https://oliveira.run.place/about" style="background-color: #005fe0; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-size: 16px; font-weight: bold; display: inline-block;">--}}
+{{--                Ver Detalhes do Evento--}}
+{{--            </a>--}}
+{{--        </td>--}}
+{{--    </tr>--}}
+    <span style="margin-top: 20px">Atenciosamente,</span>
+    <br />
+    <strong class="">Elisabete Bandeira</strong>
+    <br />
+    <span class="">Tesoureira</span>
+    <br />
+    <strong class="">Associação de Pais de Oliveira</strong>
     <!-- Rodapé -->
     <tr>
         <td style="background-color: #f4f4f4; text-align: center; padding: 15px; font-size: 14px; color: #666; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
@@ -57,14 +63,6 @@
         </td>
     </tr>
 </table>
-
-<span class="">Atenciosamente,</span>
-<br />
-<strong class="">Elisabete Bandeira</strong>
-<br />
-<span class="">Tesoureira</span>
-<br />
-<strong class="">Associação de Pais de Oliveira</strong>
 
 </body>
 </html>
