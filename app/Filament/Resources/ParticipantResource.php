@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ParticipantResource\Pages;
+use App\Mail\ParticipantConfirmEmail;
 use App\Models\Event;
 use App\Models\Participant;
 use App\Models\Payment;
@@ -18,6 +19,7 @@ use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Mail;
 
 class ParticipantResource extends Resource
 {
@@ -129,6 +131,14 @@ class ParticipantResource extends Resource
                     ->default(''),
             ])
             ->actions([
+                // enviar email de confirmação
+                Action::make('enviarEmailConfirmacao')
+                    ->label('Enviar Confirmação')
+                    ->requiresConfirmation()
+                    ->color('primary')
+                    ->action(fn(Participant $record) => Mail::to($record->email)->send(new ParticipantConfirmEmail($record)))
+                    ->visible(fn(Participant $record) => $record->payment && $record->payment->status === 'pending')
+                    ->icon('heroicon-o-mail-open'),
                 Action::make('receberPagamento')
                     ->label('Receber Pagamento')
                     ->requiresConfirmation()
