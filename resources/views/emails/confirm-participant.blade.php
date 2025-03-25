@@ -48,7 +48,7 @@
 {{--            </a>--}}
 {{--        </td>--}}
 {{--    </tr>--}}
-    <span style="margin-top: 20px">Atenciosamente,</span>
+    <span style="padding: 15px">Atenciosamente,</span>
     <br />
     <strong class="">Elisabete Bandeira</strong>
     <br />
