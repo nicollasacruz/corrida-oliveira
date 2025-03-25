@@ -20,8 +20,22 @@
         <td style="padding: 20px; text-align: center;">
             <h2 style="color: #333; font-size: 22px; margin-bottom: 10px;">Olá, <span style="color: #FF9800;">{{ $fullName }}</span>! 👋</h2>
             <p style="color: #555; font-size: 16px; line-height: 1.5;">
-                Muito obrigado por se inscrever no evento <strong style="color: #FF9800;">{{ $eventName }}</strong>. <br>
+                É com prazer que confirmamos a sua inscrição no evento <strong style="color: #FF9800;">{{ $eventName }}</strong>. <br>
                 Sua inscrição foi confirmada com sucesso! 🎊
+            </p>
+            <p style="color: #555; font-size: 16px; line-height: 1.5;">
+                Estamos ansiosos para contar com a sua participação neste evento cheio de energia e diversão! 🏃‍♂️🏃‍♀️
+            </p>
+            <p style="color: #555; font-size: 16px; line-height: 1.5;">
+                Informamos que o pagamento e o levantamento do seu kit poderão ser efetuados nos seguintes dias e horários:
+                <br />
+                22 e 23 de Maio de 2025, das 21h às 22h30 na Junta de Freguesia de Oliveira
+                <br />
+                Também poderá contactar com algum membro da Associação de Pais de Oliveira que ele fará a entrega.
+                <br />
+                Caso tenha alguma dúvida ou necessite de mais informações, não hesite em contactar-nos.
+                <br /><br />
+                Agradecemos a sua participação e estamos certos de que será uma experiência inesquecível!
             </p>
         </td>
     </tr>
@@ -44,5 +58,22 @@
     </tr>
 </table>
 
+<span class="">Atenciosamente</span>
+<strong class="">Elisabete Bandeira</strong>
+<span class="">Tesoureira</span>
+<strong class="">Associação de Pais de Oliveira</strong>
+
 </body>
 </html>
+
+
+Caro(a) participante,
+
+É com prazer que confirmamos a sua inscrição na Corrida/Caminhada Colorida Noturna de Oliveira, que terá lugar no próximo dia 24 de Maio de 2025. Estamos ansiosos para contar com a sua participação neste evento cheio de energia e diversão!
+
+
+
+Atenciosamente,
+Elisabete Bandeira
+Tesoureira
+Associação de Pais de Oliveira
