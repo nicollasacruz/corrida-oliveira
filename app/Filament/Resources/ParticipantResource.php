@@ -136,8 +136,9 @@ class ParticipantResource extends Resource
                     ->label('Enviar Confirmação')
                     ->requiresConfirmation()
                     ->color('primary')
-                    ->action(fn(Participant $record) => logger('Tentando enviar email para: ' . $record->email))
-                    ->icon('heroicon-o-mail-open'),
+                    ->action(fn(Participant $record) => Mail::to($record->email)->send(new ParticipantConfirmEmail($record)))
+                    ->visible(fn(Participant $record) => $record->payment && $record->payment->status === 'pending')
+                    ->icon('heroicon-s-mail'),
                 Action::make('receberPagamento')
                     ->label('Receber Pagamento')
                     ->requiresConfirmation()
