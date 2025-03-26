@@ -195,7 +195,6 @@ onMounted(() => {
 
                         <div v-show="currentImageIndex === 0 || currentImageIndex === 2"
                              class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
-                            class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
                             <h1
                                 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white max-w-4xl leading-tight tracking-tight shadow-sm"
                             >
