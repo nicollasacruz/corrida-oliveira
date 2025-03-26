@@ -25,6 +25,8 @@ import LogoCeramicaDaArieira from "../../img/CERAMICA DA ARIEIRA.jpeg";
 import LogoHenriqueCoelho from "../../img/Henrique Coelho.jpeg";
 import LogoPedroBike from "../../img/PEDROBIKEARTE.jpeg";
 import LogoDivisoTetos from "../../img/divisotetos.png";
+import BannerValentri from "../../img/valentri.jpg";
+import BannerHurb from "../../img/hurb.jpg";
 
 
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
@@ -72,6 +74,25 @@ onMounted(() => {
         'ad_personalization': 'denied'
     })
 })
+
+const carouselImages = [
+    ImageHeader,
+    BannerValentri,
+    ImageHeader,
+    BannerHurb
+]
+
+const currentImageIndex = ref(0)
+
+const nextImage = () => {
+    currentImageIndex.value = (currentImageIndex.value + 1) % carouselImages.length
+    console.log(currentImageIndex.value)
+}
+
+onMounted(() => {
+    setInterval(nextImage, 5000)
+})
+
 
 </script>
 
@@ -150,12 +171,20 @@ onMounted(() => {
             </nav>
             <div :class="{'dark': darkMode}" class="min-h-screen">
                 <div class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-500">
-                    <header class="relative h-[30vh] md:h-[50vh] overflow-hidden">
-                        <img
-                            :src="ImageHeader"
-                            alt="Caminhada noturna com luzes coloridas"
-                            class="w-full h-full object-cover object-center filter brightness-[0.65] dark:brightness-50"
-                        />
+                    <header class="relative h-[150px] md:h-[55vh] overflow-hidden">
+                        <div class="w-full h-full relative overflow-hidden">
+                            <transition-group name="fade" tag="div" class="w-full h-full">
+                                <img
+                                    v-for="(img, index) in carouselImages"
+                                    v-show="currentImageIndex === index"
+                                    :key="index"
+                                    :src="img"
+                                    class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.65] dark:brightness-50 transition-opacity duration-1000"
+                                    alt="Banner do evento"
+                                />
+                            </transition-group>
+                        </div>
+
 
                         <div class="absolute top-4 right-4 z-20">
                             <button @click="toggleDarkMode"
@@ -164,7 +193,8 @@ onMounted(() => {
                             </button>
                         </div>
 
-                        <div
+                        <div v-show="currentImageIndex === 0 || currentImageIndex === 2"
+                             class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
                             class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-6">
                             <h1
                                 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white max-w-4xl leading-tight tracking-tight shadow-sm"
@@ -188,32 +218,34 @@ onMounted(() => {
                     Patrocinadores
                 </span>
 
-<!--                <div class="relative w-full overflow-hidden py-6">-->
-<!--                    <div class="flex gap-x-8 animate-scroll whitespace-nowrap w-max">-->
-<!--                        &lt;!&ndash; Logos (repetidos para looping) &ndash;&gt;-->
-<!--                        <template v-for="i in 2" :key="i">-->
-<!--                            <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoLimbo" alt="Logo Limbo Tech" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>-->
-<!--                            <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>-->
-<!--                        </template>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="relative w-full overflow-hidden py-6">-->
+                <!--                    <div class="flex gap-x-8 animate-scroll whitespace-nowrap w-max">-->
+                <!--                        &lt;!&ndash; Logos (repetidos para looping) &ndash;&gt;-->
+                <!--                        <template v-for="i in 2" :key="i">-->
+                <!--                            <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoLimbo" alt="Logo Limbo Tech" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>-->
+                <!--                            <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>-->
+                <!--                        </template>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
                 <!-- Container Rolável -->
+                <div class="flex md:start overflow-y-auto whitespace-nowrap justify-center gap-x-4 px-4 pt-4 h-40 ">
+                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="flex-shrink-0"/>
+                    <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" flex-shrink-0"/>
+                </div>
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
-                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoLimbo" alt="Logo Limbo Tech" class="h-14 flex-shrink-0"/>
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
                     <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
@@ -248,3 +280,13 @@ onMounted(() => {
         </footer>
     </div>
 </template>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
+</style>
