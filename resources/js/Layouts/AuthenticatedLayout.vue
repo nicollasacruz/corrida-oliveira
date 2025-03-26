@@ -90,7 +90,7 @@ const nextImage = () => {
 }
 
 onMounted(() => {
-    setInterval(nextImage, 5000)
+    setInterval(nextImage, 3000)
 })
 
 
