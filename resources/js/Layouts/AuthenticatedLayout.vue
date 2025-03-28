@@ -248,7 +248,6 @@ onMounted(() => {
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
                     <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
                     <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" h-14 flex-shrink-0"/>
-                    <img :src="LogoUcha" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
                     <img :src="LogoDreamSakos" alt="Logo DreamSakos" class="h-14 flex-shrink-0"/>
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
@@ -259,6 +258,7 @@ onMounted(() => {
                     <img :src="LogoDivisoTetos" alt="Logo empresa Divisotetos" class="h-14 flex-shrink-0"/>
                 </div>
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
+                    <img :src="LogoUcha" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
                     <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
                     <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>
                     <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>
