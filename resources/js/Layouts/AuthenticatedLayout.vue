@@ -240,12 +240,13 @@ onMounted(() => {
                 <!--                </div>-->
 
                 <!-- Container Rolável -->
-                <div class="flex md:start overflow-y-auto whitespace-nowrap justify-center gap-x-4 px-4 pt-4 h-40 ">
+<!--                <div class="flex md:start overflow-y-auto whitespace-nowrap justify-center gap-x-4 px-4 pt-4 h-40 ">-->
+<!--                    -->
+<!--                </div>-->
+                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 h-14 scrollbar-hide">
                     <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="flex-shrink-0"/>
                     <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" flex-shrink-0"/>
-                </div>
-                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
-                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class=" flex-shrink-0"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
                     <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
                     <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
