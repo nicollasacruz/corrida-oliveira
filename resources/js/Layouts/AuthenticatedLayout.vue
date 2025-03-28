@@ -25,6 +25,8 @@ import LogoCeramicaDaArieira from "../../img/CERAMICA DA ARIEIRA.jpeg";
 import LogoHenriqueCoelho from "../../img/Henrique Coelho.jpeg";
 import LogoPedroBike from "../../img/PEDROBIKEARTE.jpeg";
 import LogoDivisoTetos from "../../img/divisotetos.png";
+import LogoUcha from "../../img/uchaSupermercado.jpeg";
+import LogoDreamSakos from "../../img/dreamsakos.jpeg";
 import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
@@ -246,6 +248,8 @@ onMounted(() => {
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
                     <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
                     <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" h-14 flex-shrink-0"/>
+                    <img :src="LogoUcha" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoDreamSakos" alt="Logo DreamSakos" class="h-14 flex-shrink-0"/>
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
                     <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
