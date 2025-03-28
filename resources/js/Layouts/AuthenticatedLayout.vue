@@ -243,7 +243,7 @@ onMounted(() => {
 <!--                <div class="flex md:start overflow-y-auto whitespace-nowrap justify-center gap-x-4 px-4 pt-4 h-40 ">-->
 <!--                    -->
 <!--                </div>-->
-                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 h-14 scrollbar-hide">
+                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
                     <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
                     <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" h-14 flex-shrink-0"/>
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
