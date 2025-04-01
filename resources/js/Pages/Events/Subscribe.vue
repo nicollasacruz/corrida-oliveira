@@ -46,7 +46,7 @@ const toggleDarkMode = () => {
             <div class=" w-full p-6 rounded-lg shadow-lg transition bg-white dark:bg-gray-800">
                 <h1 class="text-3xl font-bold mb-4">{{ event.name }}</h1>
                 <p class="mb-4">{{ event.description }}</p>
-                <p v-if="event.name.toString().includes('Corrida')" class="mb-4 font-extrabold">OBRIGATÓRIO UTILIZAR DORSAL E LANTERNA.</p>
+                <p v-if="event.name.toString().includes('Corrida')" class="mb-4 font-extrabold">OBRIGATÓRIO UTILIZAR DORSAL E LANTERNA. (Responsabilidade do corredor)</p>
 
                 <p class="font-semibold mb-2">📍 Location: {{ event.location }}</p>
                 <p class="font-semibold mb-4">📅 Date: {{ event.runnerDate }}</p>
