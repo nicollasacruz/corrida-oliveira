@@ -27,11 +27,15 @@ import LogoPedroBike from "../../img/PEDROBIKEARTE.jpeg";
 import LogoDivisoTetos from "../../img/divisotetos.png";
 import LogoUcha from "../../img/uchaSupermercado.jpeg";
 import LogoDreamSakos from "../../img/dreamsakos.jpeg";
+import LogoMarilyn from "../../img/marylin.png";
+import LogoDuo from "../../img/duo.jpeg";
+import LogoExtraValue from "../../img/extravalue.jpeg";
 import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
 
 import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
+import {isMotionInstance} from "@vueuse/motion";
 
 const showingNavigationDropdown = ref(false);
 const user = usePage().props.auth.user;
@@ -256,8 +260,11 @@ onMounted(() => {
                     <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>
                     <img :src="LogoPedroBike" alt="Logo Pedro Bike Art" class="h-14 flex-shrink-0"/>
                     <img :src="LogoDivisoTetos" alt="Logo empresa Divisotetos" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoExtraValue" alt="Logo empresa ExtraValue" class="h-14 flex-shrink-0"/>
                 </div>
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
+                    <img :src="LogoMarilyn" alt="Logo Marilyb" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoDuo" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
                     <img :src="LogoUcha" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
                     <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
                     <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>
