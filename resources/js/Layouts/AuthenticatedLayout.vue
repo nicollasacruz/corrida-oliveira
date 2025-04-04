@@ -31,7 +31,7 @@ import LogoMarilyn from "../../img/marylin.png";
 import LogoDuo from "../../img/duo.jpeg";
 import LogoExtraValue from "../../img/extravalue.jpeg";
 import LogoBagoeira from "../../img/bagoeira.jpeg";
-import LogoPiloto from "../../img/piloto.jpeg.jpeg";
+import LogoPiloto from "../../img/piloto.jpeg";
 import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
