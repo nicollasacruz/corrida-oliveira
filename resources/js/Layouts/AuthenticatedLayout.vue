@@ -30,6 +30,8 @@ import LogoDreamSakos from "../../img/dreamsakos.jpeg";
 import LogoMarilyn from "../../img/marylin.png";
 import LogoDuo from "../../img/duo.jpeg";
 import LogoExtraValue from "../../img/extravalue.jpeg";
+import LogoBagoeira from "../../img/bagoeira.jpeg";
+import LogoPiloto from "../../img/piloto.jpeg.jpeg";
 import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
@@ -253,28 +255,30 @@ onMounted(() => {
                     <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
                     <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" h-14 flex-shrink-0"/>
                     <img :src="LogoDreamSakos" alt="Logo DreamSakos" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoPiloto" alt="Logo Piloto Automóveis" class="h-14 flex-shrink-0"/>
                     <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
                     <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoPedroBike" alt="Logo Pedro Bike Art" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
                     <img :src="LogoDivisoTetos" alt="Logo empresa Divisotetos" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoExtraValue" alt="Logo empresa ExtraValue" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoPedroBike" alt="Logo Pedro Bike Art" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
                 </div>
                 <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
                     <img :src="LogoMarilyn" alt="Logo Marilyb" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoDuo" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoDuo" alt="Logo Duo" class="h-14 flex-shrink-0"/>
                     <img :src="LogoUcha" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoBagoeira" alt="Logo Bagoeira" class="h-14 flex-shrink-0"/>
                     <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>
                     <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>
                     <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>
                     <img :src="LogoHenriqueCoelho" alt="Logo Henrique" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
                     <img :src="LogoCeramicaDaArieira" alt="Logo Ceramica da Arieira" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoExtraValue" alt="Logo empresa ExtraValue" class="h-14 flex-shrink-0"/>
+                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>
                 </div>
             </div>
 
