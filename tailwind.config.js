@@ -150,7 +150,7 @@ export default {
                 'image-zoom': 'image-zoom 1.5s ease-out',
                 'pulse-light': 'pulse-light 2s infinite',
                 'card-hover': 'card-hover 0.3s forwards',
-                'scroll': 'scroll 30s linear infinite',
+                'scroll': 'scroll 25s linear infinite',
             },
             boxShadow: {
                 'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',

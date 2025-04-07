@@ -104,6 +104,37 @@ onMounted(() => {
     setInterval(nextImage, 3000)
 })
 
+const logos = [
+    { src: LogoOliveira, alt: "Logo Freguesia de Oliveira" },
+    { src: LogoLimbo, alt: "Logo Limbo Tech" },
+    { src: LogoDreamSakos, alt: "Logo DreamSakos" },
+    { src: LogoPiloto, alt: "Logo Piloto Automóveis" },
+    { src: LogoIpon, alt: "Logo Ginásio Ipon" },
+    { src: LogoNuwave, alt: "Logo empresa NuWave" },
+    { src: LogoNunoBogas, alt: "Logo Nuno Bogas" },
+    { src: LogoDoceBiscoito, alt: "Logo Doce Biscoito" },
+    { src: LogoDivisoTetos, alt: "Logo empresa Divisotetos" },
+    { src: LogoEstrelaDeAnis, alt: "Logo Estrela de Anis" },
+    { src: LogoCeramicaDaArieira, alt: "Logo Ceramica da Arieira" },
+    { src: LogoMarilyn, alt: "Logo Marilyb" },
+    { src: LogoDuo, alt: "Logo Duo" },
+    { src: LogoUcha, alt: "Logo Ucha Supermercados" },
+    { src: LogoBagoeira, alt: "Logo Bagoeira" },
+    { src: LogoCeramicaNormand, alt: "Logo Ceramica Normand" },
+    { src: LogoJcoAuto, alt: "Logo Jco Auto" },
+    { src: LogoTerra, alt: "Logo Terra" },
+    { src: LogoHenriqueCoelho, alt: "Logo Henrique" },
+    { src: LogoAlexandre, alt: "Logo Alexandre" },
+    { src: LogoHulp, alt: "Logo Hulp" },
+    { src: LogoValentri, alt: "Logo Valentri" },
+    { src: LogoRosa, alt: "Logo Rosa" },
+    { src: LogoExtraValue, alt: "Logo empresa ExtraValue" },
+    { src: LogoMariaConc, alt: "Logo Maria da Conceição" },
+    { src: LogoPedroBike, alt: "Logo Pedro Bike Art" },
+    { src: LogoCeramicaJM, alt: "Logo Ceramica JM" },
+    { src: LogoTalhoDasAldeias, alt: "Logo Talho das Aldeias" }
+];
+
 
 </script>
 
@@ -250,44 +281,19 @@ onMounted(() => {
                 <!--                    </div>-->
                 <!--                </div>-->
 
-                <!-- Container Rolável -->
-<!--                <div class="flex md:start overflow-y-auto whitespace-nowrap justify-center gap-x-4 px-4 pt-4 h-40 ">-->
-<!--                    -->
-<!--                </div>-->
-                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
-                    <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoLimbo" alt="Logo Limbo Tech" class=" h-14 flex-shrink-0"/>
-                    <img :src="LogoDreamSakos" alt="Logo DreamSakos" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoPiloto" alt="Logo Piloto Automóveis" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoDivisoTetos" alt="Logo empresa Divisotetos" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoCeramicaDaArieira" alt="Logo Ceramica da Arieira" class="h-14 flex-shrink-0"/>
-                </div>
-                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
-                    <img :src="LogoMarilyn" alt="Logo Marilyb" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoDuo" alt="Logo Duo" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoUcha" alt="Logo Ucha Supermercados" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoBagoeira" alt="Logo Bagoeira" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoHenriqueCoelho" alt="Logo Henrique" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>
-                </div>
-                <div class="flex md:justify-center overflow-x-auto whitespace-nowrap gap-x-4 px-4 pt-4 scrollbar-hide">
-                    <a href="https://hulp.pt"><img :src="LogoHulp" alt="Logo Hulp" class="h-14 flex-shrink-0"/> </a>
-                    <img :src="LogoValentri" alt="Logo valentri" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoRosa" alt="Logo Rosa" class="h-14 flex-shrink-0"/>
+                <div class="relative overflow-hidden px-4 pt-4 max-w-full md:max-w-[1000px] md:mx-auto">
+                    <div class="flex gap-4 flex-nowrap md:flex-wrap md:justify-center animate-scroll pause-on-hover md:animate-none w-max md:w-full">
+                        <!-- Logos originais -->
+                        <template v-for="(logo, index) in logos" :key="`logo-${index}`">
+                            <img :src="logo.src" :alt="logo.alt" class="h-14 flex-shrink-0" />
+                        </template>
 
-                    <img :src="LogoExtraValue" alt="Logo empresa ExtraValue" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoPedroBike" alt="Logo Pedro Bike Art" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>
-                    <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>
+                        <!-- Duplicação para loop -->
+                        <template class="" v-for="(logo, index) in logos" :key="`logo-duplicate-${index}`">
+                            <img :src="logo.src" :alt="logo.alt" class="h-14 flex-shrink-0 md:hidden" />
+                        </template>
+
+                    </div>
                 </div>
             </div>
 
@@ -306,11 +312,20 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .fade-enter-active, .fade-leave-active {
     transition: opacity 1s ease;
 }
 
 .fade-enter-from, .fade-leave-to {
     opacity: 0;
+}
+@layer utilities {
+    .pause-on-hover:hover {
+        animation-play-state: paused;
+    }
 }
 </style>
