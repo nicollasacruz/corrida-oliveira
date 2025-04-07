@@ -281,11 +281,11 @@ const logos = [
                 <!--                    </div>-->
                 <!--                </div>-->
 
-                <div class="relative overflow-hidden px-4 pt-4 max-w-full md:max-w-[1000px] md:mx-auto">
+                <div class="relative overflow-hidden px-4 pt-4 max-w-full md:max-w-screen-xl md:mx-auto">
                     <div class="flex gap-4 flex-nowrap md:flex-wrap md:justify-center animate-scroll pause-on-hover md:animate-none w-max md:w-full">
                         <!-- Logos originais -->
                         <template v-for="(logo, index) in logos" :key="`logo-${index}`">
-                            <img :src="logo.src" :alt="logo.alt" class="h-14 flex-shrink-0" />
+                            <img :src="logo.src" :alt="logo.alt" class="h-14 md:h-16 flex-shrink-0" />
                         </template>
 
                         <!-- Duplicação para loop -->
