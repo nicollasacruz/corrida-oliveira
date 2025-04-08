@@ -19,14 +19,26 @@ class DeviceController extends Controller
             ]);
             $device = Device::where([
                 'user_cv' => $validated['user_cv'],
-                'device_name' => $validated['device_name']
+                'device_name' => $validated['device_name'],
+                'token' => $validated['token']
             ]);
-            if ($device->count() != 0) {
-                $device->update($validated);
-            } else {
-                $device = Device::create($validated);
+            if ($device->count() == 1) {
+                Log::info(json_encode($device->first()));
+                Log::info("Device already exists");
+                return response()->json(['message' => 'Device already exists']);
             }
-            return response()->json(['status' => 'success', 'token' => $device->token]);
+            $device = Device::where([
+                'user_cv' => $validated['user_cv'],
+                'device_name' => $validated['device_name'],
+            ])->first();
+            if ($device) {
+                $device->update($validated);
+                return response()->json(['message' => 'Device updated successfully']);
+            }
+
+            Device::create($validated);
+
+            return response()->json(['message' => 'Device added successfully']);
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
