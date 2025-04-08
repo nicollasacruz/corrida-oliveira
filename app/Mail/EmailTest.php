@@ -3,20 +3,17 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class EmailTest extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private string $token;
+    public string $token;
 
     /**
-     * Create a new message instance.
+     * Cria uma nova instância da mensagem.
      */
     public function __construct(string $token)
     {
@@ -24,22 +21,14 @@ class EmailTest extends Mailable
     }
 
     /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * Constrói o e-mail com assunto e view.
      */
-    public function attachments(): array
-    {
-        return [];
-    }
-
     public function build()
     {
         return $this->subject('Email Test Token')
-            ->view('mail.email-test')
+            ->view('mail.email-test') // resources/views/mail/email-test.blade.php
             ->with([
                 'token' => $this->token,
             ]);
     }
-
 }
