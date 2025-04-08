@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use Illuminate\Http\Request;
+use Log;
 
 class DeviceController extends Controller
 {
     public function storeToken(Request $request)
     {
+        Log::info(json_encode($request->all()));
         return response()->json(['status' => 'success', 'token' => $request->token]);
 
         try {
@@ -28,10 +30,8 @@ class DeviceController extends Controller
             }
             return response()->json(['status' => 'success', 'token' => $device->token]);
         } catch (\Exception $e) {
-            \Log::error($e->getMessage());
+            Log::error($e->getMessage());
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
         }
-
-
     }
 }
