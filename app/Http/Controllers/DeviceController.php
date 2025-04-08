@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 class DeviceController extends Controller
 {
-    public function storeToken(Request $request) {
-        //return response()->json(['status' => 'success', 'token' => $request->token]);
+    public function storeToken(Request $request)
+    {
+        return response()->json(['status' => 'success', 'token' => $request->token]);
 
         try {
             $validated = $request->validate([
@@ -25,7 +26,7 @@ class DeviceController extends Controller
             } else {
                 $device = Device::create($validated);
             }
-            return response()->json(['status' => 'success', 'token' => $request->token]);
+            return response()->json(['status' => 'success', 'token' => $device->token]);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
