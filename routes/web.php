@@ -21,7 +21,7 @@ Route::get('/qrcode', function () {
 });
 
 // ignore csrfToken in rout
-Route::post('/api/token', [DeviceController::class, 'storeToken'])->name('api.token');
+//Route::post('/api/token', [DeviceController::class, 'storeToken'])->name('api.token');
 
 Route::get('/email', function () {
     try {
