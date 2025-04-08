@@ -25,8 +25,5 @@ class AppServiceProvider extends ServiceProvider
     {
         Vite::prefetch(concurrency: 3);
         RunnerKit::observe(RunnerKitObserver::class);
-        app()->resolving(VerifyCsrfToken::class, function ($middleware) {
-            $middleware->except[] = 'api/token';
-        });
     }
 }
