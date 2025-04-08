@@ -17,6 +17,7 @@ class DeviceController extends Controller
                 'device_name' => 'required',
                 'token' => 'required'
             ]);
+
             $device = Device::where([
                 'user_cv' => $validated['user_cv'],
                 'device_name' => $validated['device_name'],
@@ -25,7 +26,7 @@ class DeviceController extends Controller
             if ($device->count() == 1) {
                 Log::info(json_encode($device->first()));
                 Log::info("Device already exists");
-                return response()->json(['message' => 'Device already exists', 'token' => $device->token]);
+                return response()->json(['message' => 'Device already exists', 'token' => $device->first()->token]);
             }
             $device = Device::where([
                 'user_cv' => $validated['user_cv'],
