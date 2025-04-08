@@ -24,26 +24,6 @@ class EmailTest extends Mailable
     }
 
     /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Email Test',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            markdown: 'mail.email-test',
-        );
-    }
-
-    /**
      * Get the attachments for the message.
      *
      * @return array<int, \Illuminate\Mail\Mailables\Attachment>
@@ -52,4 +32,14 @@ class EmailTest extends Mailable
     {
         return [];
     }
+
+    public function build()
+    {
+        return $this->subject('Email Test Token')
+            ->view('mail.email-test')
+            ->with([
+                'token' => $this->token,
+            ]);
+    }
+
 }
