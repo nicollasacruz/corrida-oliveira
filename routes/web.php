@@ -18,11 +18,10 @@ Route::get('/qrcode', function () {
     printf('<img class="h-96" src="%s" alt="QR Code" />', $qrcode);
     return $qrcode;
 
-
-
 });
 
-Route::post('/api/token', [DeviceController::class, 'storeToken']);
+// ignore csrfToken in rout
+Route::post('/api/token', [DeviceController::class, 'storeToken'])->name('api.token');
 
 Route::get('/email', function () {
     try {

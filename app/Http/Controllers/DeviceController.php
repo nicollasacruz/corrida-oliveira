@@ -11,8 +11,6 @@ class DeviceController extends Controller
     public function storeToken(Request $request)
     {
         Log::info(json_encode($request->all()));
-        return response()->json(['status' => 'success', 'token' => $request->token]);
-
         try {
             $validated = $request->validate([
                 'user_cv' => 'required',
