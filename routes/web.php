@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\ProfileController;
@@ -20,6 +21,8 @@ Route::get('/qrcode', function () {
 
 
 });
+
+Route::get('/api/token', [DeviceController::class, 'storeToken']);
 
 Route::get('/email', function () {
     try {
