@@ -22,7 +22,7 @@ Route::get('/qrcode', function () {
 
 });
 
-Route::get('/api/token', [DeviceController::class, 'storeToken']);
+Route::post('/api/token', [DeviceController::class, 'storeToken']);
 
 Route::get('/email', function () {
     try {
