@@ -41,8 +41,7 @@ import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
 
-import {Calendar, Euro, MapPin, Moon, Sun} from "lucide-vue-next";
-import {isMotionInstance} from "@vueuse/motion";
+import { Moon, Sun } from "lucide-vue-next";
 
 const showingNavigationDropdown = ref(false);
 const user = usePage().props.auth.user;
