@@ -35,6 +35,8 @@ import LogoPiloto from "../../img/piloto.jpeg";
 import LogoHulp from "../../img/hulp.jpeg";
 import LogoValentri from "../../img/valentri.jpeg";
 import LogoRosa from "../../img/logo-rose.jpeg";
+import LogoMalhasDavide from "../../img/malhas-davide.jpeg";
+import LogoPadariaModerna from "../../img/padaria-moderna.jpeg";
 import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
@@ -132,7 +134,9 @@ const logos = [
     { src: LogoMariaConc, alt: "Logo Maria da Conceição" },
     { src: LogoPedroBike, alt: "Logo Pedro Bike Art" },
     { src: LogoCeramicaJM, alt: "Logo Ceramica JM" },
-    { src: LogoTalhoDasAldeias, alt: "Logo Talho das Aldeias" }
+    { src: LogoTalhoDasAldeias, alt: "Logo Talho das Aldeias" },
+    { src: LogoMalhasDavide, alt: "Logo Malhas Davide" },
+    { src: LogoPadariaModerna, alt: "Logo Padaria Moderna" },
 ];
 
 
