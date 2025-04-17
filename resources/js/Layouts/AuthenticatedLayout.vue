@@ -37,6 +37,7 @@ import LogoValentri from "../../img/valentri.jpeg";
 import LogoRosa from "../../img/logo-rose.jpeg";
 import LogoMalhasDavide from "../../img/malhas-davide.jpeg";
 import LogoPadariaModerna from "../../img/padaria-moderna.jpeg";
+import LogoLarSalvador from "../../img/logo-lar-salvador.jpg";
 import BannerValentri from "../../img/valentri.jpg";
 import BannerHurb from "../../img/hurb.jpg";
 
@@ -136,6 +137,7 @@ const logos = [
     { src: LogoTalhoDasAldeias, alt: "Logo Talho das Aldeias" },
     { src: LogoMalhasDavide, alt: "Logo Malhas Davide" },
     { src: LogoPadariaModerna, alt: "Logo Padaria Moderna" },
+    { src: LogoLarSalvador, alt: "Logo Lar Salvador" },
 ];
 
 
