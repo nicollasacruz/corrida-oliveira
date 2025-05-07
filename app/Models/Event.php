@@ -15,6 +15,13 @@ class Event extends Model
 
     protected $fillable = ['name', 'runnerDate', 'startDate', 'endDate', 'location', 'description', 'subscriptionFee', 'isChildEvent', 'image'];
 
+    protected $casts = [
+        'runnerDate' => 'datetime',
+        'startDate' => 'datetime',
+        'endDate' => 'datetime',
+        'isChildEvent' => 'boolean',
+    ];
+
     public function participants(): HasMany
     {
         return $this->hasMany(Participant::class);

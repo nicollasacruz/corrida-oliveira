@@ -264,28 +264,6 @@ const logos = [
                     Patrocinadores
                 </span>
 
-                <!--                <div class="relative w-full overflow-hidden py-6">-->
-                <!--                    <div class="flex gap-x-8 animate-scroll whitespace-nowrap w-max">-->
-                <!--                        &lt;!&ndash; Logos (repetidos para looping) &ndash;&gt;-->
-                <!--                        <template v-for="i in 2" :key="i">-->
-                <!--                            <img :src="LogoOliveira" alt="Logo Freguesia de Oliveira" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoLimbo" alt="Logo Limbo Tech" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoIpon" alt="Logo Ginásio Ipon" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoNuwave" alt="Logo empresa NuWave" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoAlexandre" alt="Logo Alexandre" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoDoceBiscoito" alt="Logo Doce Biscoito" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoNunoBogas" alt="Logo Nuno Bogas" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoCeramicaJM" alt="Logo Ceramica" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoCeramicaNormand" alt="Logo Ceramica Normand" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoEstrelaDeAnis" alt="Logo Estrela de Anis" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoJcoAuto" alt="Logo Jco Auto" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoTalhoDasAldeias" alt="Logo Talho das Aldeias" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoTerra" alt="Logo Terra" class="h-14 flex-shrink-0"/>-->
-                <!--                            <img :src="LogoMariaConc" alt="Logo Maria da Conceição" class="h-14 flex-shrink-0"/>-->
-                <!--                        </template>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-
                 <div class="relative overflow-hidden px-4 pt-4 max-w-full md:max-w-screen-xl md:mx-auto">
                     <div class="flex gap-4 flex-nowrap md:flex-wrap md:justify-center animate-scroll pause-on-hover md:animate-none w-max md:w-full">
                         <!-- Logos originais -->

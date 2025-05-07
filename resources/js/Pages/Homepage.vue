@@ -27,8 +27,6 @@ const toCurrency = (value) => {
 
 <template>
     <AuthenticatedLayout>
-<!-- <Head title="Inscrições" />-->
-
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div v-for="event in events" :key="event.id"
