@@ -16,9 +16,9 @@ class Event extends Model
     protected $fillable = ['name', 'runnerDate', 'startDate', 'endDate', 'location', 'description', 'subscriptionFee', 'isChildEvent', 'image'];
 
     protected $casts = [
-        'runnerDate' => 'datetime',
-        'startDate' => 'datetime',
-        'endDate' => 'datetime',
+        'runnerDate' => 'date',
+        'startDate' => 'date',
+        'endDate' => 'date',
         'isChildEvent' => 'boolean',
     ];
 
