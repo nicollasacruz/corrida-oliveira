@@ -43,7 +43,7 @@ const toCurrency = (value) => {
                             </p>
                             <p class="flex items-center text-gray-700 dark:text-gray-300">
                                 <Calendar class="w-4 h-4 mr-2"/>
-                                {{ event.runnerDate }}
+                                {{ new Date(event.runnerDate).toLocaleDateString() }}
                             </p>
                             <p class="flex items-center text-gray-700 dark:text-gray-300">
                                 <Footprints class="w-4 h-4 mr-2"/>
