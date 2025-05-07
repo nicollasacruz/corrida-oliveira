@@ -51,8 +51,8 @@ const toggleDarkMode = () => {
                 <p class="mb-4">{{ event.description }}</p>
                 <p v-if="event.name.toString().includes('Corrida')" class="mb-4 font-extrabold">OBRIGATÓRIO UTILIZAR DORSAL E LANTERNA. (Responsabilidade do corredor)</p>
 
-                <p class="font-semibold mb-2">📍 Location: {{ event.location }}</p>
-                <p class="font-semibold mb-4">📅 Date: {{ event.runnerDate }}</p>
+                <p class="font-semibold mb-2">📍 Local: {{ event.location }}</p>
+                <p class="font-semibold mb-4">📅 Data: {{ new Date(event.runnerDate).toLocaleDateString() }}</p>
 
                 <h2 class="text-xl font-semibold mb-6">📝 Inscrição</h2>
 
