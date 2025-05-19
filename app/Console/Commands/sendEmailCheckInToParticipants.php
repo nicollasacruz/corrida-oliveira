@@ -33,7 +33,7 @@ class sendEmailCheckInToParticipants extends Command
 //            $this->sendEmailCheckIn($participant);
 //            $this->info('Email de check-in enviado para ' . $participant->name);
 //        });
-        Mail::to('nicollasacruz@gmail.com')->send(new CheckInEmail(Participant::find(1)));
+        Mail::to('nicollasacruz@gmail.com')->send(new CheckInEmail(Participant::first()));
     }
 
     private function sendEmailCheckIn(Participant $participant)
