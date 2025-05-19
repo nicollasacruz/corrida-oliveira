@@ -12,7 +12,7 @@ class TotalPaid extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Pago', Payment::where('status', 'paid')->sum('amount'))
+            Stat::make('Total Pago', Payment::where('status', 'paid')->sum('value'))
                 ->description('Total de Pagamentos recebidos')
                 ->descriptionIcon('heroicon-o-currency-dollar')
                 ->color('success')
