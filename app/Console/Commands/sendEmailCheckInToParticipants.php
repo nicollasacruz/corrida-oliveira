@@ -29,11 +29,11 @@ class sendEmailCheckInToParticipants extends Command
      */
     public function handle()
     {
-//        Participant::all()->each(function (Participant $participant) {
-//            $this->sendEmailCheckIn($participant);
-//            $this->info('Email de check-in enviado para ' . $participant->name);
-//        });
-        Mail::to('nicollasacruz@gmail.com')->send(new CheckInEmail(Participant::first()));
+        Participant::all()->each(function (Participant $participant) {
+            $this->sendEmailCheckIn($participant);
+            $this->info('Email de check-in enviado para ' . $participant->fullName);
+            sleep(2);
+        });
     }
 
     private function sendEmailCheckIn(Participant $participant)
