@@ -75,7 +75,7 @@ class ParticipantResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Inscrição em')
-                    ->formatStateUsing(fn($state) => \Carbon\Carbon::parse($state)->format('d/m/Y'))
+                    ->formatStateUsing(fn($state) => Carbon::parse($state)->format('d/m/Y H:i'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('event.name')
                     ->label('Evento')
