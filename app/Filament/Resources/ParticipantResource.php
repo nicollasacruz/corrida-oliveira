@@ -31,6 +31,9 @@ class ParticipantResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('created_at')
+                    ->label('Inscrição em')
+                    ->disabled(),
                 Forms\Components\TextInput::make('fullName')
                     ->label('Nome Completo')
                     ->required()
@@ -73,6 +76,7 @@ class ParticipantResource extends Resource
     {
         return $table
             ->columns([
+                // created_at desc
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Inscrição em')
                     ->formatStateUsing(fn($state) => Carbon::parse($state)->format('d/m/Y H:i'))
