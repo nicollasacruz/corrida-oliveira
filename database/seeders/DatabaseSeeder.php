@@ -17,7 +17,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-
+        User::factory()->create([
+            'name' => 'Test User 2',
+            'email' => 'elisabete@apo.com',
+            'password' => bcrypt('corrida'),
+        ]);
         $this->call(EventSeeder::class);
     }
 }

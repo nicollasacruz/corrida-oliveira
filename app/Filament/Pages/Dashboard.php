@@ -6,6 +6,7 @@ use App\Filament\Resources\ParticipantResource\Widgets\KitsStatus;
 use App\Filament\Resources\ParticipantResource\Widgets\ParticipantsByEvent;
 use App\Filament\Resources\ParticipantResource\Widgets\ParticipantsPerDayChart;
 use App\Filament\Resources\ParticipantResource\Widgets\PaymentsStatus;
+use App\Filament\Resources\ParticipantResource\Widgets\TotalPaid;
 use App\Filament\Resources\ParticipantResource\Widgets\TotalParticipants;
 use Filament\Pages\Dashboard as BaseDashboard;
 
@@ -17,6 +18,7 @@ class Dashboard extends BaseDashboard
     {
         return [
             TotalParticipants::class,
+            TotalPaid::class,
         ];
     }
 
