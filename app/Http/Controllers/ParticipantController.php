@@ -19,6 +19,13 @@ class ParticipantController extends Controller
     public function store(Request $request, Event $id)
     {
         $event = $id;
+        if (Participant::where([
+            'event_id' => $event->id,
+            'email' => $request->input('email'),
+            'fullName' => $request->input('fullName'),
+        ])->first()) {
+            return redirect(route('home'))->with('error', 'Participante já inscrito!');
+        }
         $validated = $request->validate([
             'fullName' => 'required|string|max:255',
             'email' => [
