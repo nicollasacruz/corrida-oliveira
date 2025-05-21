@@ -7,6 +7,7 @@ import {usePage} from "@inertiajs/vue3";
 defineProps({events: Array});
 
 const page = usePage();
+console.log(page.props.errors, 'page.props.errors');
 const errors = ref([]);
 const showErrorModal = ref(false);
 
