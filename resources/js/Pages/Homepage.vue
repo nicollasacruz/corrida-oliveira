@@ -7,17 +7,26 @@ import {usePage} from "@inertiajs/vue3";
 defineProps({events: Array});
 
 const page = usePage();
-console.log(page.props.errors, 'page.props.errors');
 const errors = ref([]);
+const flashError = page.props.flash?.error;
 const showErrorModal = ref(false);
 
+console.log(page.props.errors, 'page.props.errors');
+console.log(flashError, 'flashError');
+
 onMounted(() => {
-    const errorList = Object.values(page.props.errors || {});
-    if (errorList.length > 0) {
-        errors.value = errorList.flat();
+    const validationErrors = Object.values(page.props.errors || {});
+    if (validationErrors.length > 0) {
+        errors.value = validationErrors.flat();
+        showErrorModal.value = true;
+    }
+
+    if (flashError) {
+        errors.value = [flashError]; // erro vindo de `with('error')`
         showErrorModal.value = true;
     }
 });
+
 
 const closeModal = () => {
     showErrorModal.value = false;
