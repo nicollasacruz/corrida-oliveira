@@ -1,8 +1,8 @@
 <script setup>
-import {ref, onMounted} from 'vue';
-import {defineProps, usePage} from 'vue';
+import {ref, onMounted, defineProps} from 'vue';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import {MapPin, Calendar, Footprints} from 'lucide-vue-next';
+import {usePage} from "@inertiajs/vue3";
 
 defineProps({events: Array});
 
