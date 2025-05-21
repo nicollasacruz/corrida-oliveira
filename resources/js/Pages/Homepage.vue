@@ -15,8 +15,10 @@ console.log(page.props.errors, 'page.props.errors');
 console.log(flashError, 'flashError');
 
 onMounted(() => {
-    errors.value = [flashError];
-    showErrorModal.value = true;
+    if (flashError) {
+        errors.value = [flashError];
+        showErrorModal.value = true;
+    }
 });
 
 
