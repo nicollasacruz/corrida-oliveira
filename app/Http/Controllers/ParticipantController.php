@@ -24,7 +24,7 @@ class ParticipantController extends Controller
             'email' => $request->input('email'),
             'fullName' => $request->input('fullName'),
         ])->first()) {
-            return redirect(route('home'))->with('error', 'Participante já inscrito!');
+            return redirect()->back()->with('error', 'Participante já inscrito!');
         }
         $validated = $request->validate([
             'fullName' => 'required|string|max:255',

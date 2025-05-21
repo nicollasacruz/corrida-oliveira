@@ -7,24 +7,16 @@ import {usePage} from "@inertiajs/vue3";
 defineProps({events: Array});
 
 const page = usePage();
-const errors = ref([]);
 const flashError = page.props.flash?.error;
 const showErrorModal = ref(false);
+const errors = ref([]);
 
 console.log(page.props.errors, 'page.props.errors');
 console.log(flashError, 'flashError');
 
 onMounted(() => {
-    const validationErrors = Object.values(page.props.errors || {});
-    if (validationErrors.length > 0) {
-        errors.value = validationErrors.flat();
-        showErrorModal.value = true;
-    }
-
-    if (flashError) {
-        errors.value = [flashError]; // erro vindo de `with('error')`
-        showErrorModal.value = true;
-    }
+    errors.value = [flashError];
+    showErrorModal.value = true;
 });
 
 
@@ -85,7 +77,8 @@ const toCurrency = (value) => {
         <div v-if="showErrorModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div class="relative bg-white dark:bg-gray-900 rounded-lg shadow-lg max-w-md w-full p-6">
                 <!-- Botão de Fechar -->
-                <button @click="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white">
+                <button @click="closeModal"
+                        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
