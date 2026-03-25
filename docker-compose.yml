@@ -28,7 +28,7 @@ services:
       - reverse-proxy
       - internal
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/up"]
+      test: ["CMD", "sh", "-c", "wget -qO- http://127.0.0.1:80/up > /dev/null 2>&1"]
       interval: 30s
       timeout: 10s
       retries: 3
