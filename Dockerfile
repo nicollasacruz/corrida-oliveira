@@ -1,4 +1,4 @@
-FROM php:8.2-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 # Instalar dependências do sistema
 RUN apk add --no-cache \
@@ -16,10 +16,11 @@ RUN apk add --no-cache \
     npm \
     sqlite-dev \
     icu-dev \
+    icu-data-full \
     linux-headers \
     $PHPIZE_DEPS
 
-# Instalar extensões PHP
+# Instalar extensões PHP (antes de copiar os arquivos do projeto)
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) \
@@ -33,7 +34,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     opcache \
     intl \
     fileinfo \
-    ctype
+    ctype \
+    mbstring \
+    tokenizer
 
 # Limpar pacotes de desenvolvimento
 RUN apk del $PHPIZE_DEPS linux-headers
@@ -44,11 +47,17 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Configurar diretório de trabalho
 WORKDIR /var/www
 
-# Copiar arquivos do projeto
-COPY . .
+# Copiar apenas arquivos necessários primeiro (cache de dependências)
+COPY composer.json composer.lock ./
 
 # Instalar dependências do PHP
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+
+# Agora copiar o resto do projeto
+COPY . .
+
+# Rodar scripts do composer e otimizar
+RUN composer run post-autoload-dump
 
 # Instalar dependências do Node e buildar assets
 RUN npm ci && npm run build
