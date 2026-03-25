@@ -4,28 +4,21 @@ FROM php:8.3-fpm-alpine
 RUN apk add --no-cache \
     nginx \
     supervisor \
-    libpng-dev \
-    libjpeg-turbo-dev \
-    freetype-dev \
-    libzip-dev \
-    zip \
-    unzip \
     git \
     curl \
     nodejs \
     npm \
-    sqlite-dev \
-    icu-dev \
     icu-data-full \
-    oniguruma-dev \
-    linux-headers \
-    $PHPIZE_DEPS
+    libpng \
+    libjpeg-turbo \
+    freetype \
+    libzip \
+    zip \
+    unzip
 
-# Instalar extensões PHP (antes de copiar os arquivos do projeto)
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install -j$(nproc) \
-    pdo \
+# Instalar extensões PHP usando script otimizado (MUITO mais rápido!)
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN install-php-extensions \
     pdo_sqlite \
     gd \
     zip \
@@ -34,13 +27,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     bcmath \
     opcache \
     intl \
-    fileinfo \
-    ctype \
-    mbstring \
-    tokenizer
-
-# Limpar pacotes de desenvolvimento
-RUN apk del $PHPIZE_DEPS linux-headers
+    mbstring
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -48,16 +35,16 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Configurar diretório de trabalho
 WORKDIR /var/www
 
-# Copiar apenas arquivos necessários primeiro (cache de dependências)
+# Copiar apenas arquivos de dependência primeiro (cache)
 COPY composer.json composer.lock ./
 
 # Instalar dependências do PHP
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
-# Agora copiar o resto do projeto
+# Copiar o resto do projeto
 COPY . .
 
-# Rodar scripts do composer e otimizar
+# Rodar scripts do composer
 RUN composer run post-autoload-dump
 
 # Instalar dependências do Node e buildar assets
