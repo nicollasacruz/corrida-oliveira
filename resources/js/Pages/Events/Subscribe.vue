@@ -10,6 +10,7 @@ const props = defineProps({
 });
 const event = ref(props.event);
 const open = ref(false)
+const openMessage = ref("")
 
 const darkMode = ref(false)
 
@@ -29,8 +30,11 @@ const submit = () => {
         onSuccess: () => {
             form.reset();
             open.value = true;
+            openMessage.value = "Inscrição enviada com sucesso!";
         },
         onError: (errors) => {
+            form.reset();
+            open.value = true;
             console.error("Erro ao enviar formulário:", errors);
         },
     });
@@ -133,11 +137,18 @@ const toggleDarkMode = () => {
                                             <div class="mx-auto flex size-12 items-center justify-center rounded-full bg-green-100">
                                                 <CheckIcon class="size-6 text-green-600" aria-hidden="true" />
                                             </div>
-                                            <div class="mt-3 text-center sm:mt-5">
+                                            <div v-if="openMessage === 'Inscrição enviada com sucesso!'" class="mt-3 text-center sm:mt-5">
                                                 <DialogTitle as="h3" class="text-base font-semibold text-gray-900">Inscrição enviada com sucesso!</DialogTitle>
                                                 <div class="mt-2">
                                                     <p class="text-sm text-gray-500">Obrigado por se inscrever no evento.</p>
                                                     <p class="text-sm text-gray-500">Você receberá um e-mail de confirmação em breve. Caso não receba, não se preocupe, pois sua inscrição está concluida.</p>
+                                                </div>
+                                            </div>
+                                            <div v-else class="mt-3 text-center sm:mt-5">
+                                                <DialogTitle as="h3" class="text-base font-semibold text-gray-900">Inscrição já havia sido registrada!</DialogTitle>
+                                                <div class="mt-2">
+                                                    <p class="text-sm text-gray-500">Obrigado por se inscrever no evento.</p>
+                                                    <p class="text-sm text-gray-500">Não se preocupe, pois sua inscrição já está feita.</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -6,6 +6,12 @@ cd /var/www
 # Criar diretórios necessários se não existirem
 mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
 
+# Otimizar SQLite para produção
+export SQLITE_BUSY_TIMEOUT=5000
+export SQLITE_CACHE_SIZE=-32000
+export SQLITE_JOURNAL_MODE=WAL
+export SQLITE_SYNCHRONOUS=NORMAL
+
 # Ajustar permissões
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R 775 storage bootstrap/cache

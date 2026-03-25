@@ -14,10 +14,14 @@ RUN apk add --no-cache \
     curl \
     nodejs \
     npm \
-    sqlite-dev
+    sqlite-dev \
+    icu-dev \
+    linux-headers \
+    $PHPIZE_DEPS
 
 # Instalar extensões PHP
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) \
     pdo \
     pdo_sqlite \
@@ -26,7 +30,13 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     exif \
     pcntl \
     bcmath \
-    opcache
+    opcache \
+    intl \
+    fileinfo \
+    ctype
+
+# Limpar pacotes de desenvolvimento
+RUN apk del $PHPIZE_DEPS linux-headers
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
