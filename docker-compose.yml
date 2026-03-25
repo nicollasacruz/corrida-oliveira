@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -8,7 +6,7 @@ services:
     container_name: corrida-oliveira
     restart: unless-stopped
     volumes:
-      - ./database/database.sqlite:/var/www/database/database.sqlite
+      - sqlite-data:/var/www/database
       - ./storage:/var/www/storage
       - ./.env:/var/www/.env
     environment:
@@ -35,6 +33,10 @@ services:
       timeout: 10s
       retries: 3
       start_period: 40s
+
+volumes:
+  sqlite-data:
+    driver: local
 
 networks:
   reverse-proxy:

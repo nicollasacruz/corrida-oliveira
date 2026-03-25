@@ -12,15 +12,17 @@ export SQLITE_CACHE_SIZE=-32000
 export SQLITE_JOURNAL_MODE=WAL
 export SQLITE_SYNCHRONOUS=NORMAL
 
-# Ajustar permissões
-chown -R www-data:www-data storage bootstrap/cache
-chmod -R 775 storage bootstrap/cache
-
-# Garantir que o SQLite exista e tenha permissões corretas
+# Criar arquivo SQLite se não existir
 if [ ! -f /var/www/database/database.sqlite ]; then
     touch /var/www/database/database.sqlite
-    chown www-data:www-data /var/www/database/database.sqlite
 fi
+
+# Ajustar permissões
+chown -R www-data:www-data /var/www
+chmod -R 775 /var/www/storage
+chmod -R 775 /var/www/bootstrap/cache
+chown www-data:www-data /var/www/database/database.sqlite
+chmod 664 /var/www/database/database.sqlite
 
 # Gerar key se não existir
 if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ]; then
