@@ -5,6 +5,7 @@ cd /var/www
 
 # Criar diretórios necessários se não existirem
 mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+mkdir -p /var/log/supervisor
 
 # Otimizar SQLite para produção
 export SQLITE_BUSY_TIMEOUT=5000
@@ -24,19 +25,22 @@ chmod -R 775 /var/www/bootstrap/cache
 chown www-data:www-data /var/www/database/database.sqlite
 chmod 664 /var/www/database/database.sqlite
 
+# Garantir que os pacotes Laravel estejam descobertos
+php artisan package:discover --ansi || true
+
 # Gerar key se não existir
 if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ]; then
-    php artisan key:generate --force
+    php artisan key:generate --force --ansi || true
 fi
 
 # Rodar migrations
-php artisan migrate --force
+php artisan migrate --force --ansi || true
 
-# Otimizar Laravel
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-php artisan event:cache
+# Otimizar Laravel (só se os comandos anteriores funcionaram)
+php artisan config:cache --ansi || true
+php artisan route:cache --ansi || true
+php artisan view:cache --ansi || true
+php artisan event:cache --ansi || true
 
-# Iniciar supervisor
-exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+# Iniciar supervisor em primeiro plano
+exec /usr/bin/supervisord -n -c /etc/supervisor/conf.d/supervisord.conf
