@@ -1,14 +1,12 @@
 FROM php:8.3-fpm-alpine
 
-# Instalar dependências do sistema
+# Instalar dependências
 RUN apk add --no-cache \
     nginx \
     supervisor \
-    git \
     curl \
     nodejs \
     npm \
-    icu-data-full \
     libpng \
     libjpeg-turbo \
     freetype \
@@ -16,7 +14,7 @@ RUN apk add --no-cache \
     zip \
     unzip
 
-# Instalar extensões PHP usando script otimizado (MUITO mais rápido!)
+# Instalar extensões PHP
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN install-php-extensions \
     pdo_sqlite \
@@ -32,41 +30,34 @@ RUN install-php-extensions \
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Configurar diretório de trabalho
 WORKDIR /var/www
 
-# Copiar apenas arquivos de dependência primeiro (cache)
+# Copiar dependências PHP primeiro (cache)
 COPY composer.json composer.lock ./
-
-# Instalar dependências do PHP
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
-# Copiar o resto do projeto
+# Copiar código fonte
 COPY . .
 
-# Rodar scripts do composer
-RUN composer run post-autoload-dump
+# Build assets (e remover node_modules depois)
+RUN npm ci && npm run build && rm -rf node_modules
 
-# Instalar dependências do Node e buildar assets
-RUN npm ci && npm run build
+# Configurar Laravel
+RUN composer run post-autoload-dump && \
+    mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache database && \
+    touch database/database.sqlite && \
+    chown -R www-data:www-data storage bootstrap/cache database && \
+    chmod -R 775 storage bootstrap/cache
 
-# Ajustar permissões
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage \
-    && chmod -R 755 /var/www/bootstrap/cache \
-    && mkdir -p /var/www/database \
-    && touch /var/www/database/database.sqlite \
-    && chown www-data:www-data /var/www/database/database.sqlite
-
-# Copiar configurações
+# Copiar configs
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/php.ini /usr/local/etc/php/conf.d/custom.ini
-COPY docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
-# Expor porta 80
+# Criar script de inicialização
+COPY docker/start.sh /start.sh
+RUN chmod +x /start.sh
+
 EXPOSE 80
 
-# Entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/start.sh"]
