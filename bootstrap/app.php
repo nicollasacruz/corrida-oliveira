@@ -19,11 +19,6 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\VerifyCsrfToken::class
         ]);
 
-        // Não aplicar Inertia nas rotas do Filament
-        $middleware->web(remove: [
-            \App\Http\Middleware\HandleInertiaRequests::class,
-        ], replaceWhen: fn ($request) => str_starts_with($request->path(), 'admin/'));
-
         // Confiar em todos os proxies (necessário para HTTPS via nginx-proxy)
         $middleware->trustProxies(at: '**');
     })
