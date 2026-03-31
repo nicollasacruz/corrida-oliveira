@@ -7,39 +7,8 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import {Link, usePage} from '@inertiajs/vue3';
 import ImageHeader from "../../img/crossing-their-own-capabilities2.jpg";
-import LogoAlexandre from "../../img/alexandre.jpeg";
-import LogoIpon from "../../img/ipon.jpeg";
-import LogoNuwave from "../../img/nuwave.jpeg";
 import LogoOliveira from "../../img/oliveira.jpeg";
-import LogoDoceBiscoito from "../../img/docebiscoito.jpeg";
-import LogoMariaConc from "../../img/mariadaconceicao.jpeg";
-import LogoNunoBogas from "../../img/nunobogas.jpeg";
-import LogoTerra from "../../img/terra.jpeg";
 import LogoLimbo from "../../img/LimboTech.jpeg";
-import LogoCeramicaNormand from "../../img/CeramicaNormand.jpeg";
-import LogoCeramicaJM from "../../img/CeramicaJM.jpeg";
-import LogoEstrelaDeAnis from "../../img/EstrelaDeAnis.jpeg";
-import LogoJcoAuto from "../../img/JcoAuto.jpeg";
-import LogoTalhoDasAldeias from "../../img/TalhoDasAldeias.jpeg";
-import LogoCeramicaDaArieira from "../../img/CERAMICA DA ARIEIRA.jpeg";
-import LogoHenriqueCoelho from "../../img/Henrique Coelho.jpeg";
-import LogoPedroBike from "../../img/PEDROBIKEARTE.jpeg";
-import LogoDivisoTetos from "../../img/divisotetos.png";
-import LogoUcha from "../../img/uchaSupermercado.jpeg";
-import LogoDreamSakos from "../../img/dreamsakos.jpeg";
-import LogoMarilyn from "../../img/marylin.png";
-import LogoDuo from "../../img/duo.jpeg";
-import LogoExtraValue from "../../img/extravalue.jpeg";
-import LogoBagoeira from "../../img/bagoeira.jpeg";
-import LogoPiloto from "../../img/piloto.jpeg";
-import LogoHulp from "../../img/hulp.jpeg";
-import LogoValentri from "../../img/valentri.jpeg";
-import LogoRosa from "../../img/logo-rose.jpeg";
-import LogoMalhasDavide from "../../img/malhas-davide.jpeg";
-import LogoPadariaModerna from "../../img/padaria-moderna.jpeg";
-import LogoLarSalvador from "../../img/logo-lar-salvador.jpg";
-import BannerValentri from "../../img/valentri.jpg";
-import BannerHurb from "../../img/hurb.jpg";
 
 
 import { Moon, Sun } from "lucide-vue-next";
@@ -90,9 +59,7 @@ onMounted(() => {
 
 const carouselImages = [
     ImageHeader,
-    BannerValentri,
     ImageHeader,
-    BannerHurb
 ]
 
 const currentImageIndex = ref(0)
@@ -109,35 +76,6 @@ onMounted(() => {
 const logos = [
     { src: LogoOliveira, alt: "Logo Freguesia de Oliveira" },
     { src: LogoLimbo, alt: "Logo Limbo Tech" },
-    { src: LogoDreamSakos, alt: "Logo DreamSakos" },
-    { src: LogoPiloto, alt: "Logo Piloto Automóveis" },
-    { src: LogoIpon, alt: "Logo Ginásio Ipon" },
-    { src: LogoNuwave, alt: "Logo empresa NuWave" },
-    { src: LogoNunoBogas, alt: "Logo Nuno Bogas" },
-    { src: LogoDoceBiscoito, alt: "Logo Doce Biscoito" },
-    { src: LogoDivisoTetos, alt: "Logo empresa Divisotetos" },
-    { src: LogoEstrelaDeAnis, alt: "Logo Estrela de Anis" },
-    { src: LogoCeramicaDaArieira, alt: "Logo Ceramica da Arieira" },
-    { src: LogoMarilyn, alt: "Logo Marilyb" },
-    { src: LogoDuo, alt: "Logo Duo" },
-    { src: LogoUcha, alt: "Logo Ucha Supermercados" },
-    { src: LogoBagoeira, alt: "Logo Bagoeira" },
-    { src: LogoCeramicaNormand, alt: "Logo Ceramica Normand" },
-    { src: LogoJcoAuto, alt: "Logo Jco Auto" },
-    { src: LogoTerra, alt: "Logo Terra" },
-    { src: LogoHenriqueCoelho, alt: "Logo Henrique" },
-    { src: LogoAlexandre, alt: "Logo Alexandre" },
-    { src: LogoHulp, alt: "Logo Hulp" },
-    { src: LogoValentri, alt: "Logo Valentri" },
-    { src: LogoRosa, alt: "Logo Rosa" },
-    { src: LogoExtraValue, alt: "Logo empresa ExtraValue" },
-    { src: LogoMariaConc, alt: "Logo Maria da Conceição" },
-    { src: LogoPedroBike, alt: "Logo Pedro Bike Art" },
-    { src: LogoCeramicaJM, alt: "Logo Ceramica JM" },
-    { src: LogoTalhoDasAldeias, alt: "Logo Talho das Aldeias" },
-    { src: LogoMalhasDavide, alt: "Logo Malhas Davide" },
-    { src: LogoPadariaModerna, alt: "Logo Padaria Moderna" },
-    { src: LogoLarSalvador, alt: "Logo Lar Salvador" },
 ];
 
 
