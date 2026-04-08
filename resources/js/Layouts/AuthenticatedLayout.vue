@@ -183,7 +183,7 @@ const logos = [
                             <h1
                                 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white max-w-4xl leading-tight tracking-tight shadow-sm"
                             >
-                                Caminhada & Corrida Colorida Noturna de Oliveira
+                                Caminhada & Trail Colorida Noturna de Oliveira
                             </h1>
                         </div>
                     </header>
@@ -226,7 +226,7 @@ const logos = [
                         Nicollas Cruz - Limbo Tecnologia
                     </a>
                 </p>
-                <p>&copy; 2025 - Caminhada & Corrida Colorida Noturna de Oliveira</p>
+                <p>&copy; 2025 - Caminhada & Trail Colorida Noturna de Oliveira</p>
             </div>
         </footer>
     </div>
