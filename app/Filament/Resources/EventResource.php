@@ -24,34 +24,39 @@ class EventResource extends Resource
     {
         return $form
             ->schema([
-                'name' => Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')
                     ->label('Name')
                     ->required()
                     ->placeholder('Event Name'),
-                'description' => Forms\Components\Textarea::make('description')
+                Forms\Components\Textarea::make('description')
                     ->label('Description')
                     ->required()
                     ->placeholder('Description'),
-                'runnerDate' => Forms\Components\DatePicker::make('runnerDate')
+                Forms\Components\DatePicker::make('runnerDate')
                     ->label('Data da Corrida')
                     ->required()
                     ->placeholder('Data da Corrida'),
-                'startDate' => Forms\Components\DatePicker::make('startDate')
+                Forms\Components\DatePicker::make('startDate')
                     ->label('Start Date')
                     ->required()
                     ->placeholder('Start Date'),
-                'endDate' => Forms\Components\DatePicker::make('endDate')
+                Forms\Components\DatePicker::make('endDate')
                     ->label('End Date')
                     ->required()
                     ->placeholder('End Date'),
-                'location' => Forms\Components\TextInput::make('location')
+                Forms\Components\TextInput::make('location')
                     ->label('Location')
                     ->required()
                     ->placeholder('Location'),
-                'subscriptionFee' => Forms\Components\TextInput::make('subscriptionFee')
+                Forms\Components\TextInput::make('subscriptionFee')
                     ->label('Subscription Fee')
                     ->required()
                     ->placeholder('Subscription Fee'),
+                Forms\Components\Toggle::make('isChildEvent')
+                    ->label('Evento infantil')
+                    ->inline(false)
+                    ->default(false)
+                    ->helperText('Ative para exibir tamanhos infantis e campo de responsável na inscrição.'),
             ]);
     }
 
@@ -89,6 +94,10 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('subscriptionFee')
                     ->label('Subscription Fee')
                     ->searchable()
+                    ->sortable(),
+                Tables\Columns\IconColumn::make('isChildEvent')
+                    ->label('Infantil')
+                    ->boolean()
                     ->sortable(),
             ])
             ->filters([
