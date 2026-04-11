@@ -4,13 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::where('endDate', '>=', now())->orderBy('subscriptionFee')->get();
+        $events = Event::where('endDate', '>=', now())
+            ->orderBy('subscriptionFee')
+            ->get()
+            ->map(function (Event $event) {
+                $data = $event->toArray();
+                $data['image'] = $event->image ? Storage::disk('public')->url($event->image) : null;
+
+                return $data;
+            });
+
         return Inertia::render('Homepage', ['events' => $events]);
     }
 

@@ -57,6 +57,15 @@ class EventResource extends Resource
                     ->inline(false)
                     ->default(false)
                     ->helperText('Ative para exibir tamanhos infantis e campo de responsável na inscrição.'),
+                Forms\Components\FileUpload::make('image')
+                    ->label('Imagem da Homepage')
+                    ->image()
+                    ->disk('public')
+                    ->directory('events/homepage')
+                    ->visibility('public')
+                    ->imageEditor()
+                    ->helperText('Imagem exibida no card do evento na homepage.')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -67,6 +76,10 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->label('ID')
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('image')
+                    ->label('Imagem')
+                    ->disk('public')
+                    ->square(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Name')
                     ->searchable()

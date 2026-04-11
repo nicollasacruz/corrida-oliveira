@@ -48,8 +48,14 @@ const toCurrency = (value) => {
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div v-for="event in events" :key="event.id"
                      class="overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 shadow-md">
-                    <img :src="event.image" :alt="event.name"
-                         class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"/>
+                    <div v-if="event.image" class="overflow-hidden">
+                        <img :src="event.image" :alt="event.name"
+                             class="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"/>
+                    </div>
+                    <div v-else
+                         class="flex h-48 items-center justify-center bg-gray-200 text-sm font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-300">
+                        Sem imagem na homepage
+                    </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ event.name }}</h3>
                         <div class="space-y-2 mt-4">
@@ -98,4 +104,3 @@ const toCurrency = (value) => {
         </div>
     </AuthenticatedLayout>
 </template>
-
