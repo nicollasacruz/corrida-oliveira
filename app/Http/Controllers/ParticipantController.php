@@ -24,7 +24,9 @@ class ParticipantController extends Controller
             'email' => $request->input('email'),
             'fullName' => $request->input('fullName'),
         ])->first()) {
-            return response()->json(['success' => false, 'message' => 'Você já está inscrito neste evento!'], 409);
+            return redirect()
+                ->back()
+                ->with('error', 'Você já está inscrito neste evento!');
         }
         $validated = $request->validate([
             'fullName' => 'required|string|max:255',
@@ -67,7 +69,8 @@ class ParticipantController extends Controller
 
         Log::info("Inscrição realizada com sucesso! - ID: $participant->id");
 
-        return response()->json(['success' => true, 'message' => 'Inscrição realizada com sucesso!']);
-        // return redirect()->back()->with('success', 'Inscrição realizada com sucesso!');
+        return redirect()
+            ->back()
+            ->with('success', 'Inscrição realizada com sucesso!');
     }
 }

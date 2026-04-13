@@ -42,7 +42,7 @@ defineProps({})
             <p class="text-lg font-semibold">Inscreva-se agora e garanta o seu lugar neste evento repleto de energia e cor!</p>
             <br><br>
             <p class="font-semibold">💶 Pagamento e levantamento de Kits:</p>
-            <p>📆 Dias 22 e 23 de Maio na Junta de Freguesia de Oliveira das 21h às 22.30h.</p>
+            <p>📆 Dias 21 e 22 de Maio na Junta de Freguesia de Oliveira das 21h às 22.30h.</p>
 
             <p class="text-lg leading-relaxed font-semibold">
                 <br>

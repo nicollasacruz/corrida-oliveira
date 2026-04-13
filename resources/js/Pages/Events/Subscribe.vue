@@ -1,18 +1,54 @@
 <script setup>
-import {ref} from 'vue'
-import {Head, router, useForm} from '@inertiajs/vue3'
+import {computed, ref, watch} from 'vue'
+import {Head, useForm, usePage} from '@inertiajs/vue3'
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue';
-import { CheckIcon } from '@heroicons/vue/24/outline';
 
 const props = defineProps({
     event: Object,
 });
 const event = ref(props.event);
-const open = ref(false)
-const openMessage = ref("")
+const page = usePage();
+const toastMessage = ref('');
+const toastType = ref('success');
+const showToast = ref(false);
+let toastTimeout;
 
 const darkMode = ref(false)
+const flash = computed(() => page.props.flash ?? {});
+
+const triggerToast = (message, type = 'success') => {
+    if (!message) {
+        return;
+    }
+
+    toastMessage.value = message;
+    toastType.value = type;
+    showToast.value = true;
+
+    if (toastTimeout) {
+        clearTimeout(toastTimeout);
+    }
+
+    toastTimeout = window.setTimeout(() => {
+        showToast.value = false;
+    }, 4000);
+};
+
+watch(
+    flash,
+    (value) => {
+        if (value.success) {
+            triggerToast(value.success, 'success');
+            form.reset();
+            return;
+        }
+
+        if (value.error) {
+            triggerToast(value.error, 'error');
+        }
+    },
+    { immediate: true, deep: true }
+);
 
 const form = useForm({
     fullName: '',
@@ -24,19 +60,11 @@ const form = useForm({
 })
 
 const submit = () => {
-    console.log(event.id)
-    console.log(form, "form")
     form.post(route('event.subscribe', {id: event.value.id}), {
-        onSuccess: () => {
-            form.reset();
-            open.value = true;
-            openMessage.value = "Inscrição enviada com sucesso!";
-        },
         onError: (errors) => {
-            form.reset();
-            open.value = true;
             console.error("Erro ao enviar formulário:", errors);
         },
+        preserveScroll: true,
     });
 }
 
@@ -50,6 +78,23 @@ const toggleDarkMode = () => {
         <Head title="Inscrição da Corrida"/>
 
         <div class="max-w-7xl mx-auto">
+            <transition
+                enter-active-class="transform ease-out duration-300 transition"
+                enter-from-class="translate-y-2 opacity-0"
+                enter-to-class="translate-y-0 opacity-100"
+                leave-active-class="transition ease-in duration-200"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0"
+            >
+                <div
+                    v-if="showToast"
+                    :class="toastType === 'success' ? 'bg-green-600' : 'bg-red-600'"
+                    class="fixed right-4 top-4 z-50 rounded-lg px-4 py-3 text-sm font-semibold text-white shadow-lg"
+                >
+                    {{ toastMessage }}
+                </div>
+            </transition>
+
             <div class=" w-full p-6 rounded-lg shadow-lg transition bg-white dark:bg-gray-800">
                 <h1 class="text-3xl font-bold mb-4">{{ event.name }}</h1>
                 <p class="mb-4">{{ event.description }}</p>
@@ -119,48 +164,6 @@ const toggleDarkMode = () => {
                         ✅ Enviar Inscrição
                     </button>
                 </form>
-            </div>
-
-
-            <div>
-                <TransitionRoot as="template" :show="open">
-                    <Dialog class="relative z-10" @close="open = false">
-                        <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
-                            <div class="fixed inset-0 bg-gray-500/75 transition-opacity" />
-                        </TransitionChild>
-
-                        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                                <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-                                    <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                                        <div>
-                                            <div class="mx-auto flex size-12 items-center justify-center rounded-full bg-green-100">
-                                                <CheckIcon class="size-6 text-green-600" aria-hidden="true" />
-                                            </div>
-                                            <div v-if="openMessage === 'Inscrição enviada com sucesso!'" class="mt-3 text-center sm:mt-5">
-                                                <DialogTitle as="h3" class="text-base font-semibold text-gray-900">Inscrição enviada com sucesso!</DialogTitle>
-                                                <div class="mt-2">
-                                                    <p class="text-sm text-gray-500">Obrigado por se inscrever no evento.</p>
-                                                    <p class="text-sm text-gray-500">Você receberá um e-mail de confirmação em breve. Caso não receba, não se preocupe, pois sua inscrição está concluida.</p>
-                                                </div>
-                                            </div>
-                                            <div v-else class="mt-3 text-center sm:mt-5">
-                                                <DialogTitle as="h3" class="text-base font-semibold text-gray-900">Inscrição já havia sido registrada!</DialogTitle>
-                                                <div class="mt-2">
-                                                    <p class="text-sm text-gray-500">Obrigado por se inscrever no evento.</p>
-                                                    <p class="text-sm text-gray-500">Não se preocupe, pois sua inscrição já está feita.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-5 sm:mt-6">
-                                            <button type="button" class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" @click="open = false">Voltar a tela inicial</button>
-                                        </div>
-                                    </DialogPanel>
-                                </TransitionChild>
-                            </div>
-                        </div>
-                    </Dialog>
-                </TransitionRoot>
             </div>
         </div>
     </AuthenticatedLayout>

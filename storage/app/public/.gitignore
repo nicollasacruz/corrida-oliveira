@@ -1,2 +1,5 @@
 *
 !.gitignore
+!events/
+!events/homepage/
+!events/homepage/*.jpeg

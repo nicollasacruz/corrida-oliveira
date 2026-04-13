@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Event;
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class EventSeeder extends Seeder
@@ -22,6 +20,7 @@ class EventSeeder extends Seeder
                 'location' => 'Oliveira',
                 'description' => 'Evento de corrida de 14km, para as pessoas se divertirem.',
                 'subscriptionFee' => 12,
+                'image' => 'events/homepage/trail-masculino.jpeg',
             ],
             [
                 'name' => 'Corrida 14km (Feminina) - 2025',
@@ -30,6 +29,7 @@ class EventSeeder extends Seeder
                 'location' => 'Oliveira',
                 'description' => 'Evento de corrida de 14km, para as pessoas se divertirem.',
                 'subscriptionFee' => 12,
+                'image' => 'events/homepage/trail-feminino.jpeg',
             ],
             [
                 'name' => 'Caminhada a partir dos 13 anos - 2025',
@@ -38,6 +38,7 @@ class EventSeeder extends Seeder
                 'location' => 'Oliveira',
                 'description' => 'Evento de caminhada, para as pessoas se divertirem.',
                 'subscriptionFee' => 6,
+                'image' => 'events/homepage/caminhada-adulto.jpeg',
             ],
             [
                 'name' => 'Caminhada até aos 12 anos - 2025',
@@ -47,6 +48,7 @@ class EventSeeder extends Seeder
                 'description' => 'Evento de caminhada infantil, para as crianças se divertirem.',
                 'subscriptionFee' => 2,
                 'isChildEvent' => true,
+                'image' => 'events/homepage/caminhada-infantil.jpeg',
             ],
         ];
 
