@@ -28,6 +28,8 @@ services:
     networks:
       - reverse-proxy
       - internal
+    extra_hosts:
+      - "mail.sarahcruz.pt:172.19.0.1"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:80/up"]
       interval: 30s
