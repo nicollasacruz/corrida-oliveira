@@ -9,6 +9,8 @@ import {Link, usePage} from '@inertiajs/vue3';
 import ImageHeader from "../../img/crossing-their-own-capabilities2.jpg";
 import LogoOliveira from "../../img/oliveira.jpeg";
 import LogoLimbo from "../../img/LimboTech.jpeg";
+import LogoAlvorada from "../../img/alvorada.svg";
+import LogoEraBarcelos from "../../img/era-barcelos.jpeg";
 
 
 import { Moon, Sun } from "lucide-vue-next";
@@ -76,6 +78,8 @@ onMounted(() => {
 const logos = [
     { src: LogoOliveira, alt: "Logo Freguesia de Oliveira" },
     { src: LogoLimbo, alt: "Logo Limbo Tech" },
+    { src: LogoAlvorada, alt: "Logo Alvorada" },
+    { src: LogoEraBarcelos, alt: "Logo ERA Imobiliaria Barcelos" },
 ];
 
 

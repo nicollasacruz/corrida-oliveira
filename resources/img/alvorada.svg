@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 790" role="img" aria-labelledby="title desc">
+  <title id="title">Alvorada</title>
+  <desc id="desc">Logo da Alvorada com monograma estilizado, nome da marca e subtítulo.</desc>
+  <rect width="860" height="790" fill="#ffffff"/>
+  <path
+    d="M485 82h-162l-75 150 30 60h-110l-48 95 48 95h-103l-70 110h250l-38-110h80l42-85-30-60 18-35 30 60-28 55 30 60h80l48 115h110L485 82z"
+    fill="#000000"
+    opacity="0"
+  />
+  <path
+    d="M493 80H338l-78 144 31 58h-116l-40 86 40 86H99l-36 70h250l-48-122h67l40-82-30-55 68-123 212 382h70L493 80zm-87 102 145 272H507L373 198l33-16zm-182 186h70l34 68h-70l-34-68z"
+    fill="#000000"
+  />
+  <text
+    x="430"
+    y="645"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="86"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="2"
+    fill="#000000"
+  >
+    ALVORADA
+  </text>
+  <text
+    x="430"
+    y="716"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="31"
+    font-weight="700"
+    text-anchor="middle"
+    letter-spacing="0.5"
+    fill="#000000"
+  >
+    DIGITAL PRINT | TRANSFERS | TERMOCOLADOS
+  </text>
+</svg>
