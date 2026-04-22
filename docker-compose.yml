@@ -10,7 +10,6 @@ services:
       - ./storage:/var/www/storage
       - ./.env:/var/www/.env
     environment:
-      # Configurações da aplicação
       - APP_ENV=production
       - APP_DEBUG=false
       - APP_URL=https://oliveira.run.place
@@ -19,6 +18,8 @@ services:
       - SESSION_DRIVER=database
       - CACHE_STORE=database
       - QUEUE_CONNECTION=database
+      # Trust proxies para funcionar com HTTPS via nginx-proxy
+      - TRUSTED_PROXIES=**
       # Configurações para nginx-proxy
       - VIRTUAL_HOST=oliveira.run.place
       - LETSENCRYPT_HOST=oliveira.run.place
@@ -28,11 +29,11 @@ services:
       - reverse-proxy
       - internal
     healthcheck:
-      test: ["CMD", "sh", "-c", "wget -qO- http://127.0.0.1:80/up > /dev/null 2>&1"]
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:80/up"]
       interval: 30s
-      timeout: 10s
+      timeout: 5s
       retries: 3
-      start_period: 40s
+      start_period: 10s
 
 volumes:
   sqlite-data:

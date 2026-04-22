@@ -28,8 +28,8 @@ defineProps({})
                 teremos também uma corrida para quem quer mais adrenalina!
             </p>
             <br>
-            <p><strong>📅 Data:</strong> 24/05/2025</p>
-            <p><strong>📍 Local:</strong> Partida Adro da Igreja de Oliveira</p>
+            <p><strong>📅 Data:</strong> 23/05/2026</p>
+            <p><strong>📍 Local:</strong> Partida Banda Musical de Oliveira</p>
             <p><strong>🕗 Hora:</strong> 20h</p>
             <br>
             <p class="text-lg font-semibold">O que esperar deste evento:</p>
@@ -42,7 +42,7 @@ defineProps({})
             <p class="text-lg font-semibold">Inscreva-se agora e garanta o seu lugar neste evento repleto de energia e cor!</p>
             <br><br>
             <p class="font-semibold">💶 Pagamento e levantamento de Kits:</p>
-            <p>📆 Dias 21 e 22 de Maio na Junta de Freguesia de Oliveira das 21h às 22.30h.</p>
+            <p>📆 Dias 21 e 22 de Maio de 2026 na Junta de Freguesia de Oliveira das 21h às 22.30h.</p>
 
             <p class="text-lg leading-relaxed font-semibold">
                 <br>

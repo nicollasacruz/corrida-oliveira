@@ -30,7 +30,7 @@
                 Informamos que o pagamento e o levantamento do seu kit poderão ser efetuados nos seguintes dias e
                 horários:
                 <br/>
-                <bold>22 e 23 de Maio de 2025, das 21h às 22h30 na Junta de Freguesia de Oliveira</bold>
+                <bold>22 e 23 de Maio de 2026, das 21h às 22h30 na Junta de Freguesia de Oliveira</bold>
                 <br/>
                 Também poderá contactar com algum membro da Associação de Pais de Oliveira que ele fará a entrega.
                 <br/>
