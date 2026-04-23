@@ -1,31 +1,56 @@
 <script setup>
-import {ref, onMounted, defineProps} from 'vue';
+import { computed, defineProps, onBeforeUnmount, watch, ref } from 'vue';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import {MapPin, Calendar, Footprints} from 'lucide-vue-next';
-import {usePage} from "@inertiajs/vue3";
+import { Link, usePage } from "@inertiajs/vue3";
 
 defineProps({events: Array});
 
 const page = usePage();
-const flashError = page.props.flash?.error;
-const showErrorModal = ref(false);
-const errors = ref([]);
+const flash = computed(() => page.props.flash ?? {});
+const toastMessage = ref('');
+const toastType = ref('success');
+const showToast = ref(false);
+let toastTimeout;
 
-console.log(page.props.errors, 'page.props.errors');
-console.log(flashError, 'flashError');
+const triggerToast = (message, type = 'success') => {
+    if (!message) {
+        return;
+    }
 
-onMounted(() => {
-    if (flashError) {
-        errors.value = [flashError];
-        showErrorModal.value = true;
+    toastMessage.value = message;
+    toastType.value = type;
+    showToast.value = true;
+
+    if (toastTimeout) {
+        clearTimeout(toastTimeout);
+    }
+
+    toastTimeout = window.setTimeout(() => {
+        showToast.value = false;
+    }, 4000);
+};
+
+watch(
+    flash,
+    (value) => {
+        if (value.success) {
+            triggerToast(value.success, 'success');
+            return;
+        }
+
+        if (value.error) {
+            triggerToast(value.error, 'error');
+        }
+    },
+    { immediate: true, deep: true }
+);
+
+onBeforeUnmount(() => {
+    if (toastTimeout) {
+        clearTimeout(toastTimeout);
     }
 });
-
-
-const closeModal = () => {
-    showErrorModal.value = false;
-    errors.value = [];
-};
 
 const darkMode = ref(false);
 const toggleDarkMode = () => {
@@ -45,6 +70,23 @@ const toCurrency = (value) => {
 <template>
     <AuthenticatedLayout>
         <div class="max-w-7xl mx-auto">
+            <transition
+                enter-active-class="transform ease-out duration-300 transition"
+                enter-from-class="translate-y-2 opacity-0"
+                enter-to-class="translate-y-0 opacity-100"
+                leave-active-class="transition ease-in duration-200"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0"
+            >
+                <div
+                    v-if="showToast"
+                    :class="toastType === 'success' ? 'bg-green-600' : 'bg-red-600'"
+                    class="fixed right-4 top-4 z-50 rounded-lg px-4 py-3 text-sm font-semibold text-white shadow-lg"
+                >
+                    {{ toastMessage }}
+                </div>
+            </transition>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div v-for="event in events" :key="event.id"
                      class="overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 shadow-md">
@@ -72,34 +114,12 @@ const toCurrency = (value) => {
                                 {{ event.subscriptionFee.toString() }} passos
                             </p>
                         </div>
-                        <a :href="route('event.show', { id: event.id })"
+                        <Link :href="route('event.show', { id: event.id })"
                            class="mt-4 inline-block w-full text-center py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition">
                             Inscrição
-                        </a>
+                        </Link>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Modal de Erros -->
-        <div v-if="showErrorModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="relative bg-white dark:bg-gray-900 rounded-lg shadow-lg max-w-md w-full p-6">
-                <!-- Botão de Fechar -->
-                <button @click="closeModal"
-                        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"/>
-                    </svg>
-                </button>
-
-                <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Erro</h2>
-                <ul class="space-y-2">
-                    <li v-for="(error, index) in errors" :key="index" class="text-red-600 dark:text-red-400">
-                        {{ error }}
-                    </li>
-                </ul>
             </div>
         </div>
     </AuthenticatedLayout>

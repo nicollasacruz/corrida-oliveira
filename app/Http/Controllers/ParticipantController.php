@@ -61,7 +61,6 @@ class ParticipantController extends Controller
         try {
             Mail::to($participant->email)->send(new ParticipantConfirmEmail($participant));
             Mail::to('elisabetesilvabm@gmail.com')->send(new ParticipantCreatedEmail($participant));
-            Mail::to('nicollasacruz@gmail.com')->send(new ParticipantCreatedEmail($participant));
         } catch (Exception $e) {
             Log::error('Error ao enviar email de confirmação!');
             Log::error($e->getMessage());
@@ -70,7 +69,7 @@ class ParticipantController extends Controller
         Log::info("Inscrição realizada com sucesso! - ID: $participant->id");
 
         return redirect()
-            ->back()
+            ->route('home')
             ->with('success', 'Inscrição realizada com sucesso!');
     }
 }
