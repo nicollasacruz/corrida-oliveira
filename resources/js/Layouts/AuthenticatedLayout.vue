@@ -11,6 +11,20 @@ import LogoOliveira from "../../img/oliveira.jpeg";
 import LogoLimbo from "../../img/LimboTech.jpeg";
 import LogoAlvorada from "../../img/alvorada.svg";
 import LogoEraBarcelos from "../../img/era-barcelos.jpeg";
+import LogoAnaBeatrizDias from "../../img/ana-beatriz-dias.jpeg";
+import LogoAlexandreBarbosa from "../../img/alexandre-barbosa.jpeg";
+import LogoPedroBikeArte from "../../img/pedrobikearte-card.jpeg";
+import LogoBeaPlas from "../../img/beaplas-card.jpeg";
+import LogoAnimatt from "../../img/animatt-card.jpeg";
+import LogoJcoAuto from "../../img/jcoauto-card.jpeg";
+import LogoEstrelaDeAnis from "../../img/estrela-de-anis-card.jpeg";
+import LogoNuwave from "../../img/nuwave-card.jpeg";
+import LogoCeramicaJM from "../../img/ceramica-jm-card.jpeg";
+import LogoStandCosta from "../../img/stand-costa-card.jpeg";
+import LogoExtraValue from "../../img/extravalue-miguel-vieira.jpeg";
+import LogoHenriqueCoelho from "../../img/henrique-coelho-remax.jpeg";
+import LogoSmileArtStudio from "../../img/smile-art-studio.jpeg";
+import LogoDepilConcept from "../../img/depil-concept-barcelos.jpeg";
 
 
 import { Moon, Sun } from "lucide-vue-next";
@@ -80,6 +94,20 @@ const logos = [
     { src: LogoLimbo, alt: "Logo Limbo Tech" },
     { src: LogoAlvorada, alt: "Logo Alvorada" },
     { src: LogoEraBarcelos, alt: "Logo ERA Imobiliaria Barcelos" },
+    { src: LogoAnaBeatrizDias, alt: "Ana Beatriz Dias Professora de Zumba" },
+    { src: LogoAlexandreBarbosa, alt: "Alexandre Barbosa Limpezas Florestais e Agricolas" },
+    { src: LogoPedroBikeArte, alt: "Pedro Macedo PedroBikeArte" },
+    { src: LogoBeaPlas, alt: "BeaPlas" },
+    { src: LogoAnimatt, alt: "Animatt by DJ Tosttas" },
+    { src: LogoJcoAuto, alt: "JCOAUTO" },
+    { src: LogoEstrelaDeAnis, alt: "Estrela de Anis" },
+    { src: LogoNuwave, alt: "Nuwave Assist Service" },
+    { src: LogoCeramicaJM, alt: "Ceramica JM" },
+    { src: LogoStandCosta, alt: "Stand Costa Automoveis e Mecanica" },
+    { src: LogoExtraValue, alt: "Extra Value Miguel Vieira" },
+    { src: LogoHenriqueCoelho, alt: "Henrique Coelho Remax" },
+    { src: LogoSmileArtStudio, alt: "Smile Art Studio" },
+    { src: LogoDepilConcept, alt: "Depil Concept Barcelos" },
 ];
 
 
