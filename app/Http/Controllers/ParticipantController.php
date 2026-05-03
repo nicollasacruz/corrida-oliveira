@@ -33,8 +33,8 @@ class ParticipantController extends Controller
             'email' => [
                 'required',
                 'email',
-                Rule::unique('participants')->where(function ($query) use ($request) {
-                    return $query->where('event_id', $request->input('event_id'))
+                Rule::unique('participants')->where(function ($query) use ($event, $request) {
+                    return $query->where('event_id', $event->id)
                         ->where('fullName', $request->input('fullName'));
                 }),
             ],

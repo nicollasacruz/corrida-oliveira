@@ -1,5 +1,5 @@
 <script setup>
-import {computed, ref, watch} from 'vue'
+import {computed, onBeforeUnmount, ref, watch} from 'vue'
 import {Head, useForm, usePage} from '@inertiajs/vue3'
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
@@ -15,6 +15,15 @@ let toastTimeout;
 
 const darkMode = ref(false)
 const flash = computed(() => page.props.flash ?? {});
+
+const form = useForm({
+    fullName: '',
+    email: '',
+    phone: '',
+    responsibleName: '',
+    dateBorn: '',
+    sizeTshirt: '',
+})
 
 const triggerToast = (message, type = 'success') => {
     if (!message) {
@@ -39,7 +48,6 @@ watch(
     (value) => {
         if (value.success) {
             triggerToast(value.success, 'success');
-            form.reset();
             return;
         }
 
@@ -50,16 +58,17 @@ watch(
     { immediate: true, deep: true }
 );
 
-const form = useForm({
-    fullName: '',
-    email: '',
-    phone: '',
-    responsibleName: '',
-    dateBorn: '',
-    sizeTshirt: '',
-})
+onBeforeUnmount(() => {
+    if (toastTimeout) {
+        clearTimeout(toastTimeout);
+    }
+});
 
 const submit = () => {
+    if (form.processing) {
+        return;
+    }
+
     form.post(route('event.subscribe', {id: event.value.id}), {
         onError: (errors) => {
             console.error("Erro ao enviar formulário:", errors);
@@ -160,8 +169,21 @@ const toggleDarkMode = () => {
                     </select>
 
                     <button type="submit"
-                            class="w-full py-3 rounded-lg font-bold transition bg-blue-600 text-white hover:bg-blue-700 dark:bg-yellow-400 dark:text-black dark:hover:bg-yellow-500">
-                        ✅ Enviar Inscrição
+                            :disabled="form.processing"
+                            class="flex w-full items-center justify-center py-3 rounded-lg font-bold transition bg-blue-600 text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-yellow-400 dark:text-black dark:hover:bg-yellow-500">
+                        <svg
+                            v-if="form.processing"
+                            class="h-5 w-5 animate-spin"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                        </svg>
+                        <span v-if="form.processing" class="sr-only">Enviando inscrição</span>
+                        <span v-else>✅ Enviar Inscrição</span>
                     </button>
                 </form>
             </div>
