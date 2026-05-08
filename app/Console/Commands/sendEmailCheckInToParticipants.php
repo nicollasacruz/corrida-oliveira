@@ -2,11 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Mail\CheckInEmail;
-use App\Mail\ParticipantConfirmEmail;
-use App\Models\Participant;
+use App\Services\SendCheckInEmailToParticipants;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 
 class sendEmailCheckInToParticipants extends Command
 {
@@ -27,17 +24,12 @@ class sendEmailCheckInToParticipants extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(SendCheckInEmailToParticipants $sender): int
     {
-        Participant::all()->each(function (Participant $participant) {
-            $this->sendEmailCheckIn($participant);
-            $this->info('Email de check-in enviado para ' . $participant->fullName);
-            sleep(2);
-        });
-    }
+        $sent = $sender->sendToAll();
 
-    private function sendEmailCheckIn(Participant $participant)
-    {
-        Mail::to($participant->email)->send(new CheckInEmail($participant));
+        $this->info("Emails de check-in enviados: {$sent}");
+
+        return self::SUCCESS;
     }
 }

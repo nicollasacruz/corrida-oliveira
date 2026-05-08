@@ -25,6 +25,7 @@ import LogoExtraValue from "../../img/extravalue-miguel-vieira.jpeg";
 import LogoHenriqueCoelho from "../../img/henrique-coelho-remax.jpeg";
 import LogoSmileArtStudio from "../../img/smile-art-studio.jpeg";
 import LogoDepilConcept from "../../img/depil-concept-barcelos.jpeg";
+import LogoPedroPereira from "../../img/pedro-pereira-eletricidade-pichelaria.svg";
 
 
 import { Moon, Sun } from "lucide-vue-next";
@@ -108,6 +109,7 @@ const logos = [
     { src: LogoHenriqueCoelho, alt: "Henrique Coelho Remax" },
     { src: LogoSmileArtStudio, alt: "Smile Art Studio" },
     { src: LogoDepilConcept, alt: "Depil Concept Barcelos" },
+    { src: LogoPedroPereira, alt: "Pedro Pereira Eletricidade e Pichelaria" },
 ];
 
 
