@@ -27,6 +27,12 @@ import LogoHenriqueCoelho from "../../img/henrique-coelho-remax.jpeg";
 import LogoSmileArtStudio from "../../img/smile-art-studio.jpeg";
 import LogoDepilConcept from "../../img/depil-concept-barcelos.jpeg";
 import LogoPedroPereira from "../../img/pedro-pereira-eletricidade-pichelaria.svg";
+import LogoBagoeira from "../../img/bagoeira-hotel-restaurante.jpeg";
+import LogoRefugio from "../../img/refugio-pizzaria-take-away.jpeg";
+import LogoPallBraga from "../../img/pallbraga-wood-pallets.jpeg";
+import LogoMariaConceicao from "../../img/maria-da-conceicao-ceramica.jpeg";
+import LogoParaisoAnimal from "../../img/paraiso-animal.jpeg";
+import LogoDivisotetos from "../../img/divisotetos-patrocinio.jpeg";
 
 
 import { Moon, Sun } from "lucide-vue-next";
@@ -112,6 +118,12 @@ const logos = [
     { src: LogoSmileArtStudio, alt: "Smile Art Studio" },
     { src: LogoDepilConcept, alt: "Depil Concept Barcelos" },
     { src: LogoPedroPereira, alt: "Pedro Pereira Eletricidade e Pichelaria" },
+    { src: LogoBagoeira, alt: "Bagoeira Hotel Restaurante" },
+    { src: LogoRefugio, alt: "Refugio Pizzaria Take-Away" },
+    { src: LogoPallBraga, alt: "PallBraga Wood Pallets" },
+    { src: LogoMariaConceicao, alt: "Maria da Conceicao Magalhaes Pereira Fernandes Ceramica" },
+    { src: LogoParaisoAnimal, alt: "Paraiso Animal" },
+    { src: LogoDivisotetos, alt: "Divisotetos" },
 ];
 
 
