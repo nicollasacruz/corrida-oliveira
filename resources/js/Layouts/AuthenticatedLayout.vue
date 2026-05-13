@@ -33,6 +33,7 @@ import LogoPallBraga from "../../img/pallbraga-wood-pallets.jpeg";
 import LogoMariaConceicao from "../../img/maria-da-conceicao-ceramica.jpeg";
 import LogoParaisoAnimal from "../../img/paraiso-animal.jpeg";
 import LogoDivisotetos from "../../img/divisotetos-patrocinio.jpeg";
+import LogoErudis from "../../img/erudis.svg";
 
 
 import { Moon, Sun } from "lucide-vue-next";
@@ -124,6 +125,7 @@ const logos = [
     { src: LogoMariaConceicao, alt: "Maria da Conceicao Magalhaes Pereira Fernandes Ceramica" },
     { src: LogoParaisoAnimal, alt: "Paraiso Animal" },
     { src: LogoDivisotetos, alt: "Divisotetos" },
+    { src: LogoErudis, alt: "Erudis" },
 ];
 
 
